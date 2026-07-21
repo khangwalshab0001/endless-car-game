@@ -1,6 +1,7 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x87ceeb);
 
 const camera = new THREE.PerspectiveCamera(
     75,
@@ -10,135 +11,65 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("gameCanvas")
+    canvas: document.getElementById("gameCanvas"),
+    antialias: true
 });
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
+// Lights
+const ambient = new THREE.AmbientLight(0xffffff, 2);
+scene.add(ambient);
 
-// Light
-const light = new THREE.DirectionalLight(0xffffff, 3);
-light.position.set(5, 10, 5);
-scene.add(light);
-
+const sun = new THREE.DirectionalLight(0xffffff, 2);
+sun.position.set(10, 20, 10);
+scene.add(sun);
 
 // Ground
 const ground = new THREE.Mesh(
-    new THREE.PlaneGeometry(100,100),
-    new THREE.MeshStandardMaterial({color:0x228B22})
+    new THREE.PlaneGeometry(300,300),
+    new THREE.MeshStandardMaterial({color:0x2e8b57})
 );
 
 ground.rotation.x = -Math.PI/2;
 scene.add(ground);
 
-// temporary car
-// SUV style temporary car
+// Car
+const car = new THREE.Group();
 
-const carGroup = new THREE.Group();
-
+// Body
 const body = new THREE.Mesh(
     new THREE.BoxGeometry(2.2,0.8,4),
-    new THREE.MeshStandardMaterial({
-        color:0x111111
-    })
+    new THREE.MeshStandardMaterial({color:0x111111})
 );
-
-body.position.y = 0.5;
-carGroup.add(body);
-
+body.position.y = 0.7;
+car.add(body);
 
 // Roof
 const roof = new THREE.Mesh(
-    new THREE.BoxGeometry(1.6,0.6,1.8),
-    new THREE.MeshStandardMaterial({
-        color:0x222222
-    })
+    new THREE.BoxGeometry(1.5,0.6,2),
+    new THREE.MeshStandardMaterial({color:0x222222})
 );
-
-roof.position.y = 1.15;
+roof.position.y = 1.3;
 roof.position.z = -0.2;
-carGroup.add(roof);
+car.add(roof);
 
-
-carGroup.position.y = 0;
-scene.add(carGroup);
-
-const car = carGroup;
-car.position.set(0,0,0);
-console.log("car loaded");
-
-// Camera
-camera.position.set(0,4,8);
-
-
-// Controls
-const keys = {};
-
-window.addEventListener("keydown",(e)=>{
-    keys[e.key] = true;
-});
-
-window.addEventListener("keyup",(e)=>{
-    keys[e.key] = false;
-});
-
-
-// Mobile buttons
-let move = {
-    forward:false,
-    back:false,
-    left:false,
-    right:false
-};
-
-document.getElementById("up").ontouchstart = () => move.forward = true;
-document.getElementById("up").ontouchend = () => move.forward = false;
-
-document.getElementById("down").ontouchstart = () => move.back = true;
-document.getElementById("down").ontouchend = () => move.back = false;
-
-document.getElementById("left").ontouchstart = () => move.left = true;
-document.getElementById("left").ontouchend = () => move.left = false;
-
-document.getElementById("right").ontouchstart = () => move.right = true;
-document.getElementById("right").ontouchend = () => move.right = false;
-
-
-// Game loop
-function animate(){
-
-    requestAnimationFrame(animate);
-
-    if(move.left){
-        car.rotation.y += 0.05;
-    }
-
-    if(move.right){
-        car.rotation.y -= 0.05;
-    }
-
-
-    let speed = 0;
-
-    if(move.forward){
-        speed = 0.12;
-    }
-
-    if(move.back){
-        speed = -0.06;
-    }
-
-
-    car.position.x -= Math.sin(car.rotation.y) * speed;
-    car.position.z -= Math.cos(car.rotation.y) * speed;
-
-
-    camera.position.x = car.position.x;
-    camera.position.z = car.position.z + 8;
-    camera.lookAt(car.position);
-
-
-    renderer.render(scene,camera);
+// Wheels
+function wheel(x,z){
+    const w = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.4,0.4,0.35,24),
+        new THREE.MeshStandardMaterial({color:0x111111})
+    );
+    w.rotation.z = Math.PI/2;
+    w.position.set(x,0.4,z);
+    return w;
 }
 
-animate();
+car.add(wheel(-1,1.4));
+car.add(wheel(1,1.4));
+car.add(wheel(-1,-1.4));
+car.add(wheel(1,-1.4));
+
+scene.add(car);
+
+camera.position.set(0,4,8);
