@@ -60,7 +60,18 @@ const roof = new THREE.Mesh(
 
 roof.position.set(0,1.55,-0.1);
 car.add(roof);
+// Windshield
+const glass = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6,0.45,1.3),
+    new THREE.MeshStandardMaterial({
+        color:0x88aaff,
+        transparent:true,
+        opacity:0.55
+    })
+);
 
+glass.position.set(0,1.55,0.75);
+car.add(glass);
 // Wheels
 function wheel(x,z){
     const w = new THREE.Mesh(
