@@ -60,21 +60,28 @@ window.addEventListener("keyup",(e)=>{
 
 function animate(){
 
-    requestAnimationFrame(animate);if(move.forward){
-    car.position.z -= 0.1;
-}
-
-if(move.back){
-    car.position.z += 0.1;
-}
+    requestAnimationFrame(animate);// Car steering movement
 
 if(move.left){
-    car.position.x -= 0.1;
+    car.rotation.y += 0.04;
 }
 
 if(move.right){
-    car.position.x += 0.1;
+    car.rotation.y -= 0.04;
 }
+
+let speed = 0;
+
+if(move.forward){
+    speed = 0.15;
+}
+
+if(move.back){
+    speed = -0.08;
+}
+
+car.position.x -= Math.sin(car.rotation.y) * speed;
+car.position.z -= Math.cos(car.rotation.y) * speed;
 
 
     if(keys["ArrowUp"] || keys["w"]){
