@@ -152,6 +152,41 @@ car.add(archRL);
 const archRR = archFL.clone();
 archRR.position.set(1.2, 0.65, -1.4);
 car.add(archRR);
+// Front Bumper
+const bumper = new THREE.Mesh(
+    new THREE.BoxGeometry(2.35, 0.45, 0.35),
+    new THREE.MeshStandardMaterial({
+        color: 0x222222,
+        metalness: 0.3,
+        roughness: 0.6
+    })
+);
+
+bumper.position.set(0, 0.45, 2.45);
+car.add(bumper);
+// Number Plate
+const plate = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.18, 0.03),
+    new THREE.MeshStandardMaterial({
+        color: 0xffffff
+    })
+);
+
+plate.position.set(0, 0.45, 2.64);
+car.add(plate);
+// Vertical Grille Bars
+for (let i = -3; i <= 3; i++) {
+
+    const bar = new THREE.Mesh(
+        new THREE.BoxGeometry(0.08, 0.28, 0.03),
+        new THREE.MeshStandardMaterial({
+            color: 0x999999
+        })
+    );
+
+    bar.position.set(i * 0.18, 0.75, 2.37);
+    car.add(bar);
+}
 // Left Headlight
 const headLight1 = new THREE.Mesh(
     new THREE.BoxGeometry(0.35, 0.18, 0.08),
