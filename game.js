@@ -45,8 +45,8 @@ const body = new THREE.Mesh(
 
 body.position.y = 0.8;
 car.add(body);
-body.position.y = 0.7;
-car.add(body);
+
+
 
 // Roof
 const roof = new THREE.Mesh(
@@ -113,8 +113,7 @@ bonnet.rotation.x = -0.18;
 
 car.add(bonnet);
 
-bonnet.position.set(0, 0.95, 1.75);
-car.add(bonnet);
+
 // Rear Boot
 const boot = new THREE.Mesh(
     new THREE.BoxGeometry(2.1, 0.55, 0.9),
@@ -625,8 +624,7 @@ animate();
 if (keys["ArrowLeft"]) car.position.x -= 0.15;
 if (keys["ArrowRight"]) car.position.x += 0.15;
 
-if (keys["ArrowUp"]) speed += 0.005;
-if (keys["ArrowDown"]) speed -= 0.005;
+
 // Resize
 window.addEventListener("resize", () => {
 
