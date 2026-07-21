@@ -64,7 +64,7 @@ carGroup.position.y = 0;
 scene.add(carGroup);
 
 const car = carGroup;
-
+console.log("car loaded");
 
 // Camera
 camera.position.set(0,4,8);
