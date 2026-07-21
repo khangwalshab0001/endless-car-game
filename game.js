@@ -96,6 +96,33 @@ const boot = new THREE.Mesh(
 
 boot.position.set(0, 0.95, -2.05);
 car.add(boot);
+// Left Headlight
+const headLight1 = new THREE.Mesh(
+    new THREE.BoxGeometry(0.35, 0.18, 0.08),
+    new THREE.MeshStandardMaterial({
+        color: 0xffffcc,
+        emissive: 0xffffaa,
+        emissiveIntensity: 1.5
+    })
+);
+
+headLight1.position.set(-0.75, 0.95, 2.35);
+car.add(headLight1);
+
+// Right Headlight
+const headLight2 = headLight1.clone();
+headLight2.position.x = 0.75;
+car.add(headLight2);
+// Front Grille
+const grille = new THREE.Mesh(
+    new THREE.BoxGeometry(1.3, 0.35, 0.05),
+    new THREE.MeshStandardMaterial({
+        color: 0x555555
+    })
+);
+
+grille.position.set(0, 0.75, 2.33);
+car.add(grille);
 // Wheels
 function wheel(x,z){
     const w = new THREE.Mesh(
