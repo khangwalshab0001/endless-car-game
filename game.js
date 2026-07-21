@@ -72,6 +72,23 @@ const glass = new THREE.Mesh(
 
 glass.position.set(0,1.55,0.75);
 car.add(glass);
+// Left Window
+const leftWindow = new THREE.Mesh(
+    new THREE.BoxGeometry(0.08, 0.45, 2.1),
+    new THREE.MeshStandardMaterial({
+        color: 0x88aaff,
+        transparent: true,
+        opacity: 0.55
+    })
+);
+
+leftWindow.position.set(-0.92, 1.45, -0.05);
+car.add(leftWindow);
+
+// Right Window
+const rightWindow = leftWindow.clone();
+rightWindow.position.x = 0.92;
+car.add(rightWindow);
 // Bonnet
 const bonnet = new THREE.Mesh(
     new THREE.BoxGeometry(2.1, 0.45, 1.3),
@@ -96,6 +113,23 @@ const boot = new THREE.Mesh(
 
 boot.position.set(0, 0.95, -2.05);
 car.add(boot);
+// Left Taillight
+const tail1 = new THREE.Mesh(
+    new THREE.BoxGeometry(0.28, 0.18, 0.08),
+    new THREE.MeshStandardMaterial({
+        color: 0xff0000,
+        emissive: 0xaa0000,
+        emissiveIntensity: 1.2
+    })
+);
+
+tail1.position.set(-0.75, 0.95, -2.5);
+car.add(tail1);
+
+// Right Taillight
+const tail2 = tail1.clone();
+tail2.position.x = 0.75;
+car.add(tail2);
 // Left Headlight
 const headLight1 = new THREE.Mesh(
     new THREE.BoxGeometry(0.35, 0.18, 0.08),
