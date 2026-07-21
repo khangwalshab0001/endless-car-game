@@ -62,14 +62,16 @@ function animate(){
 
     requestAnimationFrame(animate);// Car steering movement
 
+// Steering
 if(move.left){
-    car.rotation.y += 0.04;
+    car.rotation.y += 0.05;
 }
 
 if(move.right){
-    car.rotation.y -= 0.04;
+    car.rotation.y -= 0.05;
 }
 
+// Speed
 let speed = 0;
 
 if(move.forward){
@@ -79,6 +81,10 @@ if(move.forward){
 if(move.back){
     speed = -0.08;
 }
+
+// Move in car direction
+car.position.x -= Math.sin(car.rotation.y) * speed;
+car.position.z -= Math.cos(car.rotation.y) * speed;
 
 car.position.x -= Math.sin(car.rotation.y) * speed;
 car.position.z -= Math.cos(car.rotation.y) * speed;
