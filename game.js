@@ -83,15 +83,27 @@ road.rotation.x = -Math.PI / 2;
 road.position.y = 0.01;
 scene.add(road);
 // CENTER LINE
-const centerLine = new THREE.Mesh(
-    new THREE.PlaneGeometry(0.15, 1000),
-    new THREE.MeshStandardMaterial({ color: 0xffffff })
-);
+// DASHED CENTER LINES
+const laneLines = [];
 
-centerLine.rotation.x = -Math.PI / 2;
-centerLine.position.set(0, 0.02, 0);
+for (let i = 0; i < 60; i++) {
 
-scene.add(centerLine);
+    const line = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.18, 4),
+        new THREE.MeshStandardMaterial({ color: 0xffffff })
+    );
+
+    line.rotation.x = -Math.PI / 2;
+
+    line.position.set(
+        0,
+        0.02,
+        -i * 8
+    );
+
+    scene.add(line);
+    laneLines.push(line);
+}
 // LEFT GRASS
 const leftGrass = new THREE.Mesh(
     new THREE.PlaneGeometry(100, 1000),
@@ -162,7 +174,18 @@ camera.position.y = 5;
         car.position.y + 1,
         car.position.z
     );
+// MOVE LANE LINES
+laneLines.forEach(line => {
 
+    line.position.z += 0.25;
+
+    if (line.position.z > car.position.z + 20) {
+
+        line.position.z -= 480;
+
+    }
+
+});
     renderer.render(scene, camera);
 }
 
