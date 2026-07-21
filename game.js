@@ -43,7 +43,7 @@ scene.add(car);
 
 
 // Camera
-camera.position.set(0,5,8);
+camera.position.set(0,4,8);
 
 
 // Controls
@@ -96,7 +96,10 @@ if(move.right){
 
     camera.lookAt(car.position);
 
-    renderer.render(scene,camera);
+    // Camera follow car
+camera.position.x = car.position.x;
+camera.position.z = car.position.z + 8;
+camera.lookAt(car.position);renderer.render(scene,camera);
 }
 // Mobile buttons
 let move = {
