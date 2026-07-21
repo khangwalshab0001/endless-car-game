@@ -90,13 +90,21 @@ car.position.x -= Math.sin(car.rotation.y) * speed;
 car.position.z -= Math.cos(car.rotation.y) * speed;
 
 
-    if(keys["ArrowUp"] || keys["w"]){
-        car.position.z -= 0.1;
-    }
+// Real car movement
 
-    if(keys["ArrowDown"] || keys["s"]){
-        car.position.z += 0.1;
-    }
+let speed = 0;
+
+if(move.forward){
+    speed = 0.12;
+}
+
+if(move.back){
+    speed = -0.06;
+}
+
+// Move according to car direction
+car.position.x -= Math.sin(car.rotation.y) * speed;
+car.position.z -= Math.cos(car.rotation.y) * speed;
 
     if(keys["ArrowLeft"] || keys["a"]){
         car.position.x -= 0.1;
