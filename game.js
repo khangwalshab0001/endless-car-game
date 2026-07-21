@@ -130,6 +130,28 @@ car.add(tail1);
 const tail2 = tail1.clone();
 tail2.position.x = 0.75;
 car.add(tail2);
+// Front Left Arch
+const archFL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.25, 0.55, 0.9),
+    new THREE.MeshStandardMaterial({ color: 0x111111 })
+);
+archFL.position.set(-1.2, 0.65, 1.4);
+car.add(archFL);
+
+// Front Right Arch
+const archFR = archFL.clone();
+archFR.position.x = 1.2;
+car.add(archFR);
+
+// Rear Left Arch
+const archRL = archFL.clone();
+archRL.position.set(-1.2, 0.65, -1.4);
+car.add(archRL);
+
+// Rear Right Arch
+const archRR = archFL.clone();
+archRR.position.set(1.2, 0.65, -1.4);
+car.add(archRR);
 // Left Headlight
 const headLight1 = new THREE.Mesh(
     new THREE.BoxGeometry(0.35, 0.18, 0.08),
