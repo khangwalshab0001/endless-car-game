@@ -141,7 +141,6 @@ function animate(){
     renderer.render(scene,camera);
 }
 
-
 animate();
 if(move.left){
     car.rotation.y += 0.03;
