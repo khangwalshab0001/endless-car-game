@@ -32,7 +32,6 @@ ground.rotation.x = -Math.PI/2;
 scene.add(ground);
 
 
-// Temporary car
 // SUV style temporary car
 
 const carGroup = new THREE.Group();
