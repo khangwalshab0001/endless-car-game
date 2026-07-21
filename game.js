@@ -430,6 +430,39 @@ for (let i = 0; i < 60; i++) {
     scene.add(line);
     laneLines.push(line);
 }
+// Left Road Edge
+const leftEdge = [];
+
+for (let i = 0; i < 60; i++) {
+
+    const line = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.25, 4),
+        new THREE.MeshStandardMaterial({ color: 0xffffff })
+    );
+
+    line.rotation.x = -Math.PI / 2;
+    line.position.set(-5.8, 0.03, -i * 8);
+
+    scene.add(line);
+    leftEdge.push(line);
+}
+
+// Right Road Edge
+const rightEdge = [];
+
+for (let i = 0; i < 60; i++) {
+
+    const line = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.25, 4),
+        new THREE.MeshStandardMaterial({ color: 0xffffff })
+    );
+
+    line.rotation.x = -Math.PI / 2;
+    line.position.set(5.8, 0.03, -i * 8);
+
+    scene.add(line);
+    rightEdge.push(line);
+}
 // LEFT GRASS
 const leftGrass = new THREE.Mesh(
     new THREE.PlaneGeometry(100, 1000),
@@ -541,6 +574,25 @@ laneLines.forEach(line => {
 
     }
 });
+leftEdge.forEach(line => {
+
+    line.position.z += 0.25;
+
+    if (line.position.z > car.position.z + 20) {
+        line.position.z -= 480;
+    }
+
+});
+
+rightEdge.forEach(line => {
+
+    line.position.z += 0.25;
+
+    if (line.position.z > car.position.z + 20) {
+        line.position.z -= 480;
+    }
+
+});    
 // ENDLESS ROAD
 
 roads.forEach((road) => {
