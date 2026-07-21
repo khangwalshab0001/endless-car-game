@@ -331,9 +331,9 @@ car.add(grille);
 // Wheels
 function wheel(x,z){
     const w = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.52,0.52,0.42,32)    
-        new THREE.MeshStandardMaterial({color:0x111111})
-    );
+    new THREE.CylinderGeometry(0.52, 0.52, 0.42, 32),
+    new THREE.MeshStandardMaterial({ color: 0x111111 })
+);
     w.rotation.z = Math.PI/2;
     w.position.set(x,0.52,z);
     return w;
