@@ -142,34 +142,3 @@ function animate(){
 }
 
 animate();
-if(move.left){
-    car.rotation.y += 0.03;
-}
-
-if(move.right){
-    car.rotation.y -= 0.03;
-}
-document.getElementById("up").ontouchstart = () => car.position.z -= 0.3;
-document.getElementById("down").ontouchstart = () => car.position.z += 0.3;
-document.getElementById("left").ontouchstart = () => car.position.x -= 0.3;
-document.getElementById("right").ontouchstart = () => car.position.x += 0.3;
-// Mobile touch controls
-
-document.getElementById("up").addEventListener("touchstart", () => {
-    car.position.z -= 0.5;
-});
-
-document.getElementById("down").addEventListener("touchstart", () => {
-    car.position.z += 0.5;
-});
-
-document.getElementById("left").addEventListener("touchstart", () => {
-    car.position.x -= 0.5;
-});
-
-document.getElementById("right").addEventListener("touchstart", () => {
-    car.position.x += 0.5;
-});
-document.getElementById("up").onclick = () => {
-    car.position.z -= 1;
-};
