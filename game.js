@@ -331,18 +331,18 @@ car.add(grille);
 // Wheels
 function wheel(x,z){
     const w = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.4,0.4,0.35,24),
+    new THREE.CylinderGeometry(0.52,0.52,0.42,32)    
         new THREE.MeshStandardMaterial({color:0x111111})
     );
     w.rotation.z = Math.PI/2;
-    w.position.set(x,0.4,z);
+    w.position.set(x,0.52,z);
     return w;
 }
 
-car.add(wheel(-1,1.4));
-car.add(wheel(1,1.4));
-car.add(wheel(-1,-1.4));
-car.add(wheel(1,-1.4));
+car.add(wheel(-1.18,1.6));
+car.add(wheel(1.18,1.6));
+car.add(wheel(-1.18,-1.6));
+car.add(wheel(1.18,-1.6));
 
 scene.add(car);
 // TREES
