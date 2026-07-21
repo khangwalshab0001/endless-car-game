@@ -82,7 +82,25 @@ const road = new THREE.Mesh(
 road.rotation.x = -Math.PI / 2;
 road.position.y = 0.01;
 scene.add(road);
+// LEFT GRASS
+const leftGrass = new THREE.Mesh(
+    new THREE.PlaneGeometry(100, 1000),
+    new THREE.MeshStandardMaterial({ color: 0x2e8b57 })
+);
 
+leftGrass.rotation.x = -Math.PI / 2;
+leftGrass.position.set(-54, 0, 0);
+scene.add(leftGrass);
+
+// RIGHT GRASS
+const rightGrass = new THREE.Mesh(
+    new THREE.PlaneGeometry(100, 1000),
+    new THREE.MeshStandardMaterial({ color: 0x2e8b57 })
+);
+
+rightGrass.rotation.x = -Math.PI / 2;
+rightGrass.position.set(54, 0, 0);
+scene.add(rightGrass);
 // Car Position
 car.position.set(0, 0, 0);
 
@@ -118,7 +136,12 @@ function animate() {
     if (keys["ArrowRight"] || keys["d"]) {
         car.position.x += 0.15;
     }
+// Road Boundary
+if (car.position.x < -3)
+    car.position.x = -3;
 
+if (car.position.x > 3)
+    car.position.x = 3;
     // Camera Follow
     camera.position.x = car.position.x;
     camera.position.z = car.position.z + 10;
