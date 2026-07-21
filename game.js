@@ -180,7 +180,27 @@ camera.lookAt(car.position);
 
 // Keyboard Controls
 const keys = {};
+["left","right","up","down"].forEach(id => {
+  const btn = document.getElementById(id);
 
+  btn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+
+    if (id === "left") keys["ArrowLeft"] = true;
+    if (id === "right") keys["ArrowRight"] = true;
+    if (id === "up") keys["ArrowUp"] = true;
+    if (id === "down") keys["ArrowDown"] = true;
+  });
+
+  btn.addEventListener("touchend", (e) => {
+    e.preventDefault();
+
+    if (id === "left") keys["ArrowLeft"] = false;
+    if (id === "right") keys["ArrowRight"] = false;
+    if (id === "up") keys["ArrowUp"] = false;
+    if (id === "down") keys["ArrowDown"] = false;
+  });
+});
 window.addEventListener("keydown", (e) => {
     keys[e.key] = true;
 });
