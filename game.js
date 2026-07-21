@@ -84,6 +84,18 @@ const bonnet = new THREE.Mesh(
 
 bonnet.position.set(0, 0.95, 1.75);
 car.add(bonnet);
+// Rear Boot
+const boot = new THREE.Mesh(
+    new THREE.BoxGeometry(2.1, 0.55, 0.9),
+    new THREE.MeshStandardMaterial({
+        color: 0x111111,
+        metalness: 0.5,
+        roughness: 0.4
+    })
+);
+
+boot.position.set(0, 0.95, -2.05);
+car.add(boot);
 // Wheels
 function wheel(x,z){
     const w = new THREE.Mesh(
