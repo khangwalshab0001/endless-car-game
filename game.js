@@ -188,7 +188,17 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener("keyup", (e) => {
     keys[e.key] = false;
 });
+document.getElementById("left").addEventListener("touchstart", () => keys["ArrowLeft"] = true);
+document.getElementById("left").addEventListener("touchend", () => keys["ArrowLeft"] = false);
 
+document.getElementById("right").addEventListener("touchstart", () => keys["ArrowRight"] = true);
+document.getElementById("right").addEventListener("touchend", () => keys["ArrowRight"] = false);
+
+document.getElementById("up").addEventListener("touchstart", () => keys["ArrowUp"] = true);
+document.getElementById("up").addEventListener("touchend", () => keys["ArrowUp"] = false);
+
+document.getElementById("down").addEventListener("touchstart", () => keys["ArrowDown"] = true);
+document.getElementById("down").addEventListener("touchend", () => keys["ArrowDown"] = false);
 // Animation
 function animate() {
 
@@ -262,7 +272,11 @@ trees.forEach(tree => {
 }
 
 animate();
+if (keys["ArrowLeft"]) car.position.x -= 0.15;
+if (keys["ArrowRight"]) car.position.x += 0.15;
 
+if (keys["ArrowUp"]) speed += 0.005;
+if (keys["ArrowDown"]) speed -= 0.005;
 // Resize
 window.addEventListener("resize", () => {
 
