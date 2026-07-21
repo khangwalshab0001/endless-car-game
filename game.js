@@ -71,7 +71,42 @@ car.add(wheel(-1,-1.4));
 car.add(wheel(1,-1.4));
 
 scene.add(car);
+// TREES
+const trees = [];
 
+function createTree(x, z) {
+
+    const tree = new THREE.Group();
+
+    // Trunk
+    const trunk = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.25, 0.3, 2),
+        new THREE.MeshStandardMaterial({ color: 0x8b5a2b })
+    );
+
+    trunk.position.y = 1;
+    tree.add(trunk);
+
+    // Leaves
+    const leaves = new THREE.Mesh(
+        new THREE.SphereGeometry(1.2, 12, 12),
+        new THREE.MeshStandardMaterial({ color: 0x1f8f2e })
+    );
+
+    leaves.position.y = 2.7;
+    tree.add(leaves);
+
+    tree.position.set(x, 0, z);
+
+    scene.add(tree);
+    trees.push(tree);
+}
+for (let i = 0; i < 40; i++) {
+
+    createTree(-10, -i * 25);
+    createTree(10, -i * 25);
+
+}
 camera.position.set(0,4,8);
 // ROAD
 // ROAD SEGMENTS
@@ -211,6 +246,18 @@ roads.forEach((road) => {
     if (road.position.z > car.position.z + 100) {
 
         road.position.z -= 1000;
+
+    }
+
+});
+    // MOVE TREES
+trees.forEach(tree => {
+
+    tree.position.z += 0.25;
+
+    if (tree.position.z > car.position.z + 20) {
+
+        tree.position.z -= 1000;
 
     }
 
