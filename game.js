@@ -15,28 +15,74 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
+
+// Light
 const light = new THREE.DirectionalLight(0xffffff, 3);
 light.position.set(5, 10, 5);
 scene.add(light);
 
-const groundGeometry = new THREE.PlaneGeometry(100, 100);
-const groundMaterial = new THREE.MeshStandardMaterial({
-    color: 0x228B22
-});
 
+// Ground
 const ground = new THREE.Mesh(
-    groundGeometry,
-    groundMaterial
+    new THREE.PlaneGeometry(100,100),
+    new THREE.MeshStandardMaterial({color:0x228B22})
 );
 
-ground.rotation.x = -Math.PI / 2;
+ground.rotation.x = -Math.PI/2;
 scene.add(ground);
 
-camera.position.set(0, 5, 10);
 
-function animate() {
+// Temporary car
+const car = new THREE.Mesh(
+    new THREE.BoxGeometry(2,1,4),
+    new THREE.MeshStandardMaterial({color:0xff0000})
+);
+
+car.position.y = 0.5;
+scene.add(car);
+
+
+// Camera
+camera.position.set(0,5,8);
+
+
+// Controls
+const keys = {};
+
+window.addEventListener("keydown",(e)=>{
+    keys[e.key] = true;
+});
+
+window.addEventListener("keyup",(e)=>{
+    keys[e.key] = false;
+});
+
+
+function animate(){
+
     requestAnimationFrame(animate);
-    renderer.render(scene, camera);
+
+
+    if(keys["ArrowUp"] || keys["w"]){
+        car.position.z -= 0.1;
+    }
+
+    if(keys["ArrowDown"] || keys["s"]){
+        car.position.z += 0.1;
+    }
+
+    if(keys["ArrowLeft"] || keys["a"]){
+        car.position.x -= 0.1;
+    }
+
+    if(keys["ArrowRight"] || keys["d"]){
+        car.position.x += 0.1;
+    }
+
+
+    camera.lookAt(car.position);
+
+    renderer.render(scene,camera);
 }
 
 animate();
