@@ -174,6 +174,30 @@ const plate = new THREE.Mesh(
 
 plate.position.set(0, 0.45, 2.64);
 car.add(plate);
+// Left Headlight
+const headLightL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.45, 0.18, 0.08),
+    new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        emissive: 0xffffff,
+        emissiveIntensity: 1.5
+    })
+);
+
+headLightL.position.set(-0.75, 0.95, 2.25);
+car.add(headLightL);
+// Right Headlight
+const headLightR = new THREE.Mesh(
+    new THREE.BoxGeometry(0.45, 0.18, 0.08),
+    new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        emissive: 0xffffff,
+        emissiveIntensity: 1.5
+    })
+);
+
+headLightR.position.set(0.75, 0.95, 2.25);
+car.add(headLightR);
 // Vertical Grille Bars
 for (let i = -3; i <= 3; i++) {
 
