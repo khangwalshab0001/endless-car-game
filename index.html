@@ -1,29 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scorpio S11 Endless Drive</title>
-
-  <link rel="stylesheet" href="style.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<title>Scorpio 3D Game</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="loading">
-    🚙 Loading Scorpio S11...
-</div>
+<canvas id="gameCanvas"></canvas>
 
-<canvas id="game"></canvas>
-
-<div id="controls">
-    <button id="left">⬅️</button>
-    <button id="right">➡️</button>
-</div>
-
-<script src="game.js"></script>
+<script type="module" src="game.js"></script>
 
 </body>
 </html>
