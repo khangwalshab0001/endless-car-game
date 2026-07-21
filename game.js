@@ -71,6 +71,7 @@ const glass = new THREE.Mesh(
 );
 
 glass.position.set(0,1.55,0.75);
+glass.rotation.x = -0.35;
 car.add(glass);
 // Left Window
 const leftWindow = new THREE.Mesh(
@@ -91,13 +92,26 @@ rightWindow.position.x = 0.92;
 car.add(rightWindow);
 // Bonnet
 const bonnet = new THREE.Mesh(
-    new THREE.BoxGeometry(2.1, 0.45, 1.3),
+
+    new THREE.BoxGeometry(2.15, 0.35, 1.45),
+
     new THREE.MeshStandardMaterial({
+
         color: 0x111111,
+
         metalness: 0.5,
+
         roughness: 0.4
+
     })
+
 );
+
+bonnet.position.set(0, 1.0, 1.85);
+
+bonnet.rotation.x = -0.18;
+
+car.add(bonnet);
 
 bonnet.position.set(0, 0.95, 1.75);
 car.add(bonnet);
