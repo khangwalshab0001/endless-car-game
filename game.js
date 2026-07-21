@@ -60,7 +60,21 @@ window.addEventListener("keyup",(e)=>{
 
 function animate(){
 
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animate);if(move.forward){
+    car.position.z -= 0.1;
+}
+
+if(move.back){
+    car.position.z += 0.1;
+}
+
+if(move.left){
+    car.position.x -= 0.1;
+}
+
+if(move.right){
+    car.position.x += 0.1;
+}
 
 
     if(keys["ArrowUp"] || keys["w"]){
