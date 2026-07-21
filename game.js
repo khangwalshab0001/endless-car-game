@@ -28,13 +28,7 @@ sun.castShadow = true;
 scene.add(sun);
 
 // Ground
-const ground = new THREE.Mesh(
-    new THREE.PlaneGeometry(300,300),
-    new THREE.MeshStandardMaterial({color:0x2e8b57})
-);
 
-ground.rotation.x = -Math.PI/2;
-scene.add(ground);
 
 // Car
 const car = new THREE.Group();
@@ -238,7 +232,7 @@ laneLines.forEach(line => {
         line.position.z -= 480;
 
     }
-
+});
 // ENDLESS ROAD
 
 roads.forEach((road) => {
