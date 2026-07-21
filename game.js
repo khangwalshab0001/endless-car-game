@@ -73,3 +73,74 @@ car.add(wheel(1,-1.4));
 scene.add(car);
 
 camera.position.set(0,4,8);
+// ROAD
+const road = new THREE.Mesh(
+    new THREE.PlaneGeometry(8, 1000),
+    new THREE.MeshStandardMaterial({ color: 0x333333 })
+);
+
+road.rotation.x = -Math.PI / 2;
+road.position.y = 0.01;
+scene.add(road);
+
+// Car Position
+car.position.set(0, 0, 0);
+
+// Camera Position
+camera.position.set(0, 5, 10);
+camera.lookAt(car.position);
+
+// Keyboard Controls
+const keys = {};
+
+window.addEventListener("keydown", (e) => {
+    keys[e.key] = true;
+});
+
+window.addEventListener("keyup", (e) => {
+    keys[e.key] = false;
+});
+
+// Animation
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    // Car always moves forward
+    car.position.z -= 0.25;
+
+    // Left
+    if (keys["ArrowLeft"] || keys["a"]) {
+        car.position.x -= 0.15;
+    }
+
+    // Right
+    if (keys["ArrowRight"] || keys["d"]) {
+        car.position.x += 0.15;
+    }
+
+    // Camera Follow
+    camera.position.x = car.position.x;
+    camera.position.z = car.position.z + 10;
+
+    camera.lookAt(
+        car.position.x,
+        car.position.y + 1,
+        car.position.z
+    );
+
+    renderer.render(scene, camera);
+}
+
+animate();
+
+// Resize
+window.addEventListener("resize", () => {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+});
