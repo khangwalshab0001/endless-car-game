@@ -35,19 +35,30 @@ const car = new THREE.Group();
 
 // Body
 const body = new THREE.Mesh(
-    new THREE.BoxGeometry(2.2,0.8,4),
-    new THREE.MeshStandardMaterial({color:0x111111})
+    new THREE.BoxGeometry(2.4, 0.9, 4.6),
+    new THREE.MeshStandardMaterial({
+        color: 0x111111,
+        metalness: 0.5,
+        roughness: 0.4
+    })
 );
+
+body.position.y = 0.8;
+car.add(body);
 body.position.y = 0.7;
 car.add(body);
 
 // Roof
 const roof = new THREE.Mesh(
-    new THREE.BoxGeometry(1.5,0.6,2),
-    new THREE.MeshStandardMaterial({color:0x222222})
+    new THREE.BoxGeometry(1.8,0.7,2.5),
+    new THREE.MeshStandardMaterial({
+        color:0x1a1a1a,
+        metalness:0.4,
+        roughness:0.5
+    })
 );
-roof.position.y = 1.3;
-roof.position.z = -0.2;
+
+roof.position.set(0,1.55,-0.1);
 car.add(roof);
 
 // Wheels
