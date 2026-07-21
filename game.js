@@ -198,6 +198,29 @@ const headLightR = new THREE.Mesh(
 
 headLightR.position.set(0.75, 0.95, 2.25);
 car.add(headLightR);
+// Rear Spoiler
+const spoiler = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.08, 0.35),
+    new THREE.MeshStandardMaterial({
+        color: 0x111111
+    })
+);
+// Left Mirror
+const mirrorL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.12, 0.18, 0.28),
+    new THREE.MeshStandardMaterial({
+        color: 0x111111
+    })
+);
+
+mirrorL.position.set(-1.28, 1.35, 0.75);
+car.add(mirrorL);
+// Right Mirror
+const mirrorR = mirrorL.clone();
+mirrorR.position.x = 1.28;
+car.add(mirrorR);
+spoiler.position.set(0, 1.95, -2.35);
+car.add(spoiler);
 // Vertical Grille Bars
 for (let i = -3; i <= 3; i++) {
 
