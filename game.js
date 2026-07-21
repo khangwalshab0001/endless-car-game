@@ -84,7 +84,25 @@ function animate(){
 
     renderer.render(scene,camera);
 }
+// Mobile buttons
+let move = {
+    forward:false,
+    back:false,
+    left:false,
+    right:false
+};
 
+document.getElementById("up").ontouchstart = () => move.forward = true;
+document.getElementById("up").ontouchend = () => move.forward = false;
+
+document.getElementById("down").ontouchstart = () => move.back = true;
+document.getElementById("down").ontouchend = () => move.back = false;
+
+document.getElementById("left").ontouchstart = () => move.left = true;
+document.getElementById("left").ontouchend = () => move.left = false;
+
+document.getElementById("right").ontouchstart = () => move.right = true;
+document.getElementById("right").ontouchend = () => move.right = false;
 animate();
 document.getElementById("up").ontouchstart = () => car.position.z -= 0.3;
 document.getElementById("down").ontouchstart = () => car.position.z += 0.3;
