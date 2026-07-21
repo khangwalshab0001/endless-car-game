@@ -155,3 +155,6 @@ document.getElementById("left").addEventListener("touchstart", () => {
 document.getElementById("right").addEventListener("touchstart", () => {
     car.position.x += 0.5;
 });
+document.getElementById("up").onclick = () => {
+    car.position.z -= 1;
+};
