@@ -82,6 +82,16 @@ const road = new THREE.Mesh(
 road.rotation.x = -Math.PI / 2;
 road.position.y = 0.01;
 scene.add(road);
+// CENTER LINE
+const centerLine = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.15, 1000),
+    new THREE.MeshStandardMaterial({ color: 0xffffff })
+);
+
+centerLine.rotation.x = -Math.PI / 2;
+centerLine.position.set(0, 0.02, 0);
+
+scene.add(centerLine);
 // LEFT GRASS
 const leftGrass = new THREE.Mesh(
     new THREE.PlaneGeometry(100, 1000),
@@ -143,8 +153,9 @@ if (car.position.x < -3)
 if (car.position.x > 3)
     car.position.x = 3;
     // Camera Follow
-    camera.position.x = car.position.x;
-    camera.position.z = car.position.z + 10;
+    camera.position.x += (car.position.x - camera.position.x) * 0.08;
+camera.position.z += ((car.position.z + 10) - camera.position.z) * 0.08;
+camera.position.y = 5;
 
     camera.lookAt(
         car.position.x,
