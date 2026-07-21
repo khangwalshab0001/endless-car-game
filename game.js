@@ -219,6 +219,59 @@ car.add(mirrorL);
 const mirrorR = mirrorL.clone();
 mirrorR.position.x = 1.28;
 car.add(mirrorR);
+// Front Left Fender
+const fenderFL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.7, 1.0),
+    new THREE.MeshStandardMaterial({ color: 0x111111 })
+);
+
+fenderFL.position.set(-1.18, 0.75, 1.4);
+car.add(fenderFL);
+
+// Front Right Fender
+const fenderFR = fenderFL.clone();
+fenderFR.position.x = 1.18;
+car.add(fenderFR);
+
+// Rear Left Fender
+const fenderRL = fenderFL.clone();
+fenderRL.position.set(-1.18, 0.75, -1.4);
+car.add(fenderRL);
+
+// Rear Right Fender
+const fenderRR = fenderFL.clone();
+fenderRR.position.set(1.18, 0.75, -1.4);
+car.add(fenderRR);
+// Left Door Line
+const doorLineL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.03, 0.65, 2.2),
+    new THREE.MeshStandardMaterial({
+        color: 0x555555
+    })
+);
+
+doorLineL.position.set(-1.22, 1.0, -0.05);
+car.add(doorLineL);
+
+// Right Door Line
+const doorLineR = doorLineL.clone();
+doorLineR.position.x = 1.22;
+car.add(doorLineR);
+// Left Handle
+const handleL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.06, 0.06, 0.28),
+    new THREE.MeshStandardMaterial({
+        color: 0xc0c0c0
+    })
+);
+
+handleL.position.set(-1.23, 1.1, 0.15);
+car.add(handleL);
+
+// Right Handle
+const handleR = handleL.clone();
+handleR.position.x = 1.23;
+car.add(handleR);
 spoiler.position.set(0, 1.95, -2.35);
 car.add(spoiler);
 // Vertical Grille Bars
