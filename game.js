@@ -134,6 +134,13 @@ document.getElementById("left").ontouchend = () => move.left = false;
 document.getElementById("right").ontouchstart = () => move.right = true;
 document.getElementById("right").ontouchend = () => move.right = false;
 animate();
+if(move.left){
+    car.rotation.y += 0.03;
+}
+
+if(move.right){
+    car.rotation.y -= 0.03;
+}
 document.getElementById("up").ontouchstart = () => car.position.z -= 0.3;
 document.getElementById("down").ontouchstart = () => car.position.z += 0.3;
 document.getElementById("left").ontouchstart = () => car.position.x -= 0.3;
