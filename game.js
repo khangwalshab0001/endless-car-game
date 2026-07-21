@@ -86,3 +86,7 @@ function animate(){
 }
 
 animate();
+document.getElementById("up").ontouchstart = () => car.position.z -= 0.3;
+document.getElementById("down").ontouchstart = () => car.position.z += 0.3;
+document.getElementById("left").ontouchstart = () => car.position.x -= 0.3;
+document.getElementById("right").ontouchstart = () => car.position.x += 0.3;
