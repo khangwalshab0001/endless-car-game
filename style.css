@@ -43,3 +43,15 @@ border-radius:50%;
 background:white;
 opacity:.8;
 }
+#controls {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    font-size: 30px;
+    margin: 5px;
+    padding: 10px 20px;
+}
