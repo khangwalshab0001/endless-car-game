@@ -74,14 +74,31 @@ scene.add(car);
 
 camera.position.set(0,4,8);
 // ROAD
-const road = new THREE.Mesh(
-    new THREE.PlaneGeometry(12, 1000)
-    new THREE.MeshStandardMaterial({ color: 0x333333 })
-);
+// ROAD SEGMENTS
+const roads = [];
 
-road.rotation.x = -Math.PI / 2;
-road.position.y = 0.01;
-scene.add(road);
+for (let i = 0; i < 5; i++) {
+
+    const road = new THREE.Mesh(
+        new THREE.PlaneGeometry(12, 200),
+        new THREE.MeshStandardMaterial({
+            color: 0x333333
+        })
+    );
+
+    road.rotation.x = -Math.PI / 2;
+
+    road.position.set(
+        0,
+        0.01,
+        -i * 200
+    );
+
+    scene.add(road);
+
+    roads.push(road);
+
+}
 // CENTER LINE
 // DASHED CENTER LINES
 const laneLines = [];
@@ -182,6 +199,18 @@ laneLines.forEach(line => {
     if (line.position.z > car.position.z + 20) {
 
         line.position.z -= 480;
+
+    }
+
+// ENDLESS ROAD
+
+roads.forEach((road) => {
+
+    road.position.z += 0.25;
+
+    if (road.position.z > car.position.z + 100) {
+
+        road.position.z -= 1000;
 
     }
 
