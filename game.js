@@ -33,13 +33,38 @@ scene.add(ground);
 
 
 // Temporary car
-const car = new THREE.Mesh(
-    new THREE.BoxGeometry(2,1,4),
-    new THREE.MeshStandardMaterial({color:0xff0000})
+// SUV style temporary car
+
+const carGroup = new THREE.Group();
+
+const body = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2,0.8,4),
+    new THREE.MeshStandardMaterial({
+        color:0x111111
+    })
 );
 
-car.position.y = 0.5;
-scene.add(car);
+body.position.y = 0.5;
+carGroup.add(body);
+
+
+// Roof
+const roof = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6,0.6,1.8),
+    new THREE.MeshStandardMaterial({
+        color:0x222222
+    })
+);
+
+roof.position.y = 1.15;
+roof.position.z = -0.2;
+carGroup.add(roof);
+
+
+carGroup.position.y = 0;
+scene.add(carGroup);
+
+const car = carGroup;
 
 
 // Camera
