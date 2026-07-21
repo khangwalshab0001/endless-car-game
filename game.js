@@ -112,7 +112,7 @@ car.position.z -= Math.cos(car.rotation.y) * speed;
     // Camera follow car
 camera.position.x = car.position.x;
 camera.position.z = car.position.z + 8;
-camera.lookAt(car.position);renderer.render(scene,camera);
+camera.lookAt(car.position);console.log(move);renderer.render(scene,camera);
 }
 // Mobile buttons
 let move = {
