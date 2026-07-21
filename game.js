@@ -83,70 +83,6 @@ window.addEventListener("keyup",(e)=>{
 });
 
 
-function animate(){
-
-    requestAnimationFrame(animate);// Car steering movement
-
-// Steering
-if(move.left){
-    car.rotation.y += 0.05;
-}
-
-if(move.right){
-    car.rotation.y -= 0.05;
-}
-
-// Speed
-let speed = 0;
-
-if(move.forward){
-    speed = 0.15;
-}
-
-if(move.back){
-    speed = -0.08;
-}
-
-// Move in car direction
-car.position.x -= Math.sin(car.rotation.y) * speed;
-car.position.z -= Math.cos(car.rotation.y) * speed;
-
-car.position.x -= Math.sin(car.rotation.y) * speed;
-car.position.z -= Math.cos(car.rotation.y) * speed;
-
-
-// Real car movement
-
-let speed = 0;
-
-if(move.forward){
-    speed = 0.12;
-}
-
-if(move.back){
-    speed = -0.06;
-}
-
-// Move according to car direction
-car.position.x -= Math.sin(car.rotation.y) * speed;
-car.position.z -= Math.cos(car.rotation.y) * speed;
-
-    if(keys["ArrowLeft"] || keys["a"]){
-        car.position.x -= 0.1;
-    }
-
-    if(keys["ArrowRight"] || keys["d"]){
-        car.position.x += 0.1;
-    }
-
-
-    camera.lookAt(car.position);
-
-    // Camera follow car
-camera.position.x = car.position.x;
-camera.position.z = car.position.z + 8;
-camera.lookAt(car.position);console.log(move);renderer.render(scene,camera);
-}
 // Mobile buttons
 let move = {
     forward:false,
@@ -166,6 +102,46 @@ document.getElementById("left").ontouchend = () => move.left = false;
 
 document.getElementById("right").ontouchstart = () => move.right = true;
 document.getElementById("right").ontouchend = () => move.right = false;
+
+
+// Game loop
+function animate(){
+
+    requestAnimationFrame(animate);
+
+    if(move.left){
+        car.rotation.y += 0.05;
+    }
+
+    if(move.right){
+        car.rotation.y -= 0.05;
+    }
+
+
+    let speed = 0;
+
+    if(move.forward){
+        speed = 0.12;
+    }
+
+    if(move.back){
+        speed = -0.06;
+    }
+
+
+    car.position.x -= Math.sin(car.rotation.y) * speed;
+    car.position.z -= Math.cos(car.rotation.y) * speed;
+
+
+    camera.position.x = car.position.x;
+    camera.position.z = car.position.z + 8;
+    camera.lookAt(car.position);
+
+
+    renderer.render(scene,camera);
+}
+
+
 animate();
 if(move.left){
     car.rotation.y += 0.03;
