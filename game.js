@@ -75,7 +75,7 @@ scene.add(car);
 camera.position.set(0,4,8);
 // ROAD
 const road = new THREE.Mesh(
-    new THREE.PlaneGeometry(8, 1000),
+    new THREE.PlaneGeometry(12, 1000)
     new THREE.MeshStandardMaterial({ color: 0x333333 })
 );
 
@@ -99,7 +99,7 @@ const leftGrass = new THREE.Mesh(
 );
 
 leftGrass.rotation.x = -Math.PI / 2;
-leftGrass.position.set(-54, 0, 0);
+leftGrass.position.set(-56, 0, 0);
 scene.add(leftGrass);
 
 // RIGHT GRASS
@@ -109,7 +109,7 @@ const rightGrass = new THREE.Mesh(
 );
 
 rightGrass.rotation.x = -Math.PI / 2;
-rightGrass.position.set(54, 0, 0);
+rightGrass.position.set(56, 0, 0);
 scene.add(rightGrass);
 // Car Position
 car.position.set(0, 0, 0);
