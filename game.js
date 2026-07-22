@@ -415,10 +415,10 @@ const pieceLength = 25;
 // ROAD SEGMENTS
 const roads = [];
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < roadLength; i++) {
 
     const road = new THREE.Mesh(
-        new THREE.PlaneGeometry(12, 200),
+        new THREE.PlaneGeometry(12, pieceLength),
         new THREE.MeshStandardMaterial({
             color: 0x333333
         })
@@ -429,12 +429,12 @@ for (let i = 0; i < 5; i++) {
     road.position.set(
         0,
         0.01,
-        -i * 200
+        -i * pieceLength
     );
 
     scene.add(road);
-
     roads.push(road);
+}
 
 }
 // CENTER LINE
