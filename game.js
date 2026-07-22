@@ -515,6 +515,8 @@ camera.lookAt(car.position);
 // Keyboard Controls
 const keys = {};
 let speed = 0;
+let roadOffset = 0;
+let curve = 0;
 let roadCurve = 0;
 let curveDirection = 1;
 ["left","right","up","down"].forEach(id => {
@@ -643,7 +645,25 @@ rightEdge.forEach(line => {
 
 });
     // ROAD CURVE
+curve = Math.sin(Date.now() * 0.00025) * 1.8;
 
+roadOffset += (curve - roadOffset) * 0.03;
+
+car.position.x -= roadOffset * speed * 0.05;
+
+camera.position.x = car.position.x + roadOffset * 3;
+
+roads.forEach(r => r.position.x = roadOffset);
+laneLines.forEach(l => l.position.x = roadOffset);
+leftEdge.forEach(l => l.position.x = roadOffset);
+rightEdge.forEach(l => l.position.x = roadOffset);
+
+trees.forEach(tree => {
+    if (tree.position.x < 0)
+        tree.position.x = roadOffset - 10;
+    else
+        tree.position.x = roadOffset + 10;
+});
 
 ;
 // ENDLESS ROAD
