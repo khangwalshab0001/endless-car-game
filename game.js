@@ -518,6 +518,8 @@ camera.lookAt(car.position);
 // Keyboard Controls
 const keys = {};
 let speed = 0;
+let roadCurve = 0;
+let curveDirection = 1;
 ["left","right","up","down"].forEach(id => {
   const btn = document.getElementById(id);
 
