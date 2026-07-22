@@ -587,15 +587,15 @@ if (speed < 0) speed = 0;
 if (speed > 0.6) speed = 0.6;
 
 
-    // Left
-    if (keys["ArrowLeft"] || keys["a"]) {
-        car.position.x -= 0.15;
-    }
+const steerSpeed = Math.max(0.08, speed * 0.35);
 
-    // Right
-    if (keys["ArrowRight"] || keys["d"]) {
-        car.position.x += 0.15;
-    }
+if (keys["ArrowLeft"] || keys["a"]) {
+    car.position.x -= steerSpeed;
+}
+
+if (keys["ArrowRight"] || keys["d"]) {
+    car.position.x += steerSpeed;
+}   
 // Road Boundary
 if (car.position.x < -3)
     car.position.x = -3;
