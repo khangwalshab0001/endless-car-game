@@ -409,6 +409,9 @@ camera.position.set(0,4,8);
 // ROAD
 let roadOffset = 0;
 let roadDirection = 1;
+const roadPieces = [];
+const roadLength = 40;
+const pieceLength = 25;
 // ROAD SEGMENTS
 const roads = [];
 
