@@ -435,7 +435,6 @@ for (let i = 0; i < roadLength; i++) {
     scene.add(road);
     roads.push(road);
 }
-
 // CENTER LINE
 // DASHED CENTER LINES
 const laneLines = [];
