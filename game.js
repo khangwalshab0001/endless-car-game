@@ -359,7 +359,7 @@ function createTrafficCar(x, z, color = 0xff0000) {
     body.position.y = 0.7;
     enemy.add(body);
 
-    enemy.position.set(x, 0, z);
+    enemy.position.set(x, 0.5, z);
 
     scene.add(enemy);
     trafficCars.push(enemy);
@@ -400,11 +400,11 @@ for (let i = 0; i < 40; i++) {
     createTree(10, -i * 25);
 
 }
-createTrafficCar(-2, -80, 0xff0000);
-createTrafficCar(2, -160, 0x0066ff);
-createTrafficCar(0, -240, 0xffff00);
-createTrafficCar(-2, -320, 0xffffff);
-createTrafficCar(2, -400, 0x00ff66);
+createTrafficCar(-2, -20, 0xff0000);
+createTrafficCar(2, -40, 0x0066ff);
+createTrafficCar(0, -60, 0xffff00);
+createTrafficCar(-2, -80, 0xffffff);
+createTrafficCar(2, -100, 0x00ff66);
 camera.position.set(0,4,8);
 // ROAD
 // ROAD SEGMENTS
