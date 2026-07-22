@@ -642,6 +642,22 @@ trees.forEach(tree => {
     }
 
 });
+   // MOVE TRAFFIC CARS
+trafficCars.forEach(carObj => {
+
+    carObj.position.z += 0.25;
+
+    // Jab car player ke paas se nikal jaye to use aage bhej do
+    if (carObj.position.z > car.position.z + 30) {
+
+        carObj.position.z = car.position.z - 450 - Math.random() * 250;
+
+        // Random lane
+        const lanes = [-2, 0, 2];
+        carObj.position.x = lanes[Math.floor(Math.random() * lanes.length)];
+    }
+
+}); 
     renderer.render(scene, camera);
 }
 
