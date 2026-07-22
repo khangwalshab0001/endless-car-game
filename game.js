@@ -615,7 +615,8 @@ camera.position.y = 5;
 laneLines.forEach(line => {
 
 line.position.z += speed;
-
+const laneX = Math.sin((car.position.z - line.position.z) * 0.008 + roadCurve) * 4;
+line.position.x += (laneX - line.position.x) * 0.08;
     if (line.position.z > car.position.z + 20) {
 
         line.position.z -= 480;
@@ -650,7 +651,7 @@ rightEdge.forEach(line => {
 roads.forEach((road) => {
 
     road.position.z += speed;
-const targetX = Math.sin((road.position.z * 0.01) + roadCurve) * 4;
+const targetX = Math.sin((car.position.z - road.position.z) * 0.008 + roadCurve) * 4;
 road.position.x += (targetX - road.position.x) * 0.08;
     if (road.position.z > car.position.z + 100) {
 
