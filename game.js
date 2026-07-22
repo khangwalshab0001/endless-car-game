@@ -638,15 +638,17 @@ if (car.position.x < -3)
 if (car.position.x > 3)
     car.position.x = 3;
     // Camera Follow
-    camera.position.x += (car.position.x - camera.position.x) * 0.08;
-camera.position.z += ((car.position.z + 10) - camera.position.z) * 0.08;
-camera.position.y = 5;
+    camera.position.set(
+    car.position.x,
+    5,
+    car.position.z + 10
+);
 
-    camera.lookAt(
-        car.position.x,
-        car.position.y + 1,
-        car.position.z
-    );
+camera.lookAt(
+    car.position.x,
+    1.5,
+    car.position.z
+);
 // MOVE LANE LINES
 laneLines.forEach(line => {
 
