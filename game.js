@@ -515,6 +515,7 @@ camera.lookAt(car.position);
 
 // Keyboard Controls
 const keys = {};
+let speed = 0;
 ["left","right","up","down"].forEach(id => {
   const btn = document.getElementById(id);
 
@@ -560,7 +561,25 @@ function animate() {
     requestAnimationFrame(animate);
 
     // Car always moves forward
-    car.position.z -= 0.25;
+    // Acceleration System
+if (typeof speed === "undefined") {
+    speed = 0;
+}
+
+if (keys["ArrowUp"] || keys["w"]) {
+    speed += 0.01;
+}
+
+if (keys["ArrowDown"] || keys["s"]) {
+    speed -= 0.02;
+}
+
+speed *= 0.98;
+
+if (speed < 0) speed = 0;
+if (speed > 0.6) speed = 0.6;
+
+car.position.z -= speed;
 
     // Left
     if (keys["ArrowLeft"] || keys["a"]) {
