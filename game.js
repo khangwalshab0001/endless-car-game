@@ -510,6 +510,40 @@ car.position.set(0, 0, 0);
 
 // Camera Position
 camera.position.set(0, 5, 10);
+function updateScreen() {
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+
+    camera.updateProjectionMatrix();
+
+    const rotate = document.getElementById("rotateScreen");
+
+    if (window.innerWidth < window.innerHeight) {
+
+        rotate.style.display = "flex";
+
+        renderer.domElement.style.display = "none";
+
+        document.getElementById("controls").style.display = "none";
+
+    } else {
+
+        rotate.style.display = "none";
+
+        renderer.domElement.style.display = "block";
+
+        document.getElementById("controls").style.display = "flex";
+
+    }
+
+}
+
+window.addEventListener("resize", updateScreen);
+window.addEventListener("orientationchange", updateScreen);
+
+updateScreen();
 camera.lookAt(car.position);
 
 // Keyboard Controls
@@ -730,12 +764,3 @@ if (keys["ArrowRight"]) car.position.x += 0.15;
 
 
 // Resize
-window.addEventListener("resize", () => {
-
-    camera.aspect = window.innerWidth / window.innerHeight;
-
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-});
