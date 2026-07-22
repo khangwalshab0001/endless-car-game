@@ -653,8 +653,7 @@ camera.lookAt(
 laneLines.forEach(line => {
 
 line.position.z += speed;
-const laneX = Math.sin((car.position.z - line.position.z) * 0.008 + roadCurve) * 4;
-line.position.x += (laneX - line.position.x) * 0.08;
+line.position.x = 0;
     if (line.position.z > car.position.z + 20) {
 
         line.position.z -= 480;
@@ -680,35 +679,14 @@ rightEdge.forEach(line => {
     }
 
 });
-    // ROAD CURVE
-curve = Math.sin(Date.now() * 0.00025) * 1.8;
-
-roadOffset += (curve - roadOffset) * 0.03;
-
-car.position.x -= roadOffset * speed * 0.05;
-
-camera.position.x = car.position.x + roadOffset * 3;
-
-roads.forEach(r => r.position.x = roadOffset);
-laneLines.forEach(l => l.position.x = roadOffset);
-leftEdge.forEach(l => l.position.x = roadOffset);
-rightEdge.forEach(l => l.position.x = roadOffset);
-
-trees.forEach(tree => {
-    if (tree.position.x < 0)
-        tree.position.x = roadOffset - 10;
-    else
-        tree.position.x = roadOffset + 10;
-});
-
+  
 ;
 // ENDLESS ROAD
 
 roads.forEach((road) => {
 
     road.position.z += speed;
-const targetX = Math.sin((car.position.z - road.position.z) * 0.008 + roadCurve) * 4;
-road.position.x += (targetX - road.position.x) * 0.08;
+    road.position.x = 0;
     if (road.position.z > car.position.z + 100) {
 
         road.position.z -= 1000;
