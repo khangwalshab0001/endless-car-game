@@ -515,7 +515,8 @@ camera.lookAt(car.position);
 // Keyboard Controls
 const keys = {};
 let speed = 0;
-
+let roadCurve = 0;
+let curveDirection = 1;
 ["left","right","up","down"].forEach(id => {
   const btn = document.getElementById(id);
 
@@ -559,7 +560,11 @@ document.getElementById("down").addEventListener("touchend", () => keys["ArrowDo
 function animate() {
 
     requestAnimationFrame(animate);
-    
+    // Smooth Road Curve
+roadCurve += 0.015 * curveDirection * speed;
+
+if (roadCurve > 3) curveDirection = -1;
+if (roadCurve < -3) curveDirection = 1;
     // Car always moves forward
     // ACCELERATOR
 if (keys["ArrowUp"] || keys["w"]) {
