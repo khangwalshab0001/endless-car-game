@@ -411,10 +411,10 @@ camera.position.set(0,4,8);
 // ROAD SEGMENTS
 const roads = [];
 
-for (let i = 0; i < roadLength; i++) {
+for (let i = 0; i < 5; i++) {
 
     const road = new THREE.Mesh(
-        new THREE.PlaneGeometry(12, pieceLength),
+       new THREE.PlaneGeometry(12, 200) 
         new THREE.MeshStandardMaterial({
             color: 0x333333
         })
@@ -425,7 +425,7 @@ for (let i = 0; i < roadLength; i++) {
     road.position.set(
         0,
         0.01,
-        -i * pieceLength
+        -i * 200
     );
 
     scene.add(road);
@@ -515,8 +515,7 @@ camera.lookAt(car.position);
 // Keyboard Controls
 const keys = {};
 let speed = 0;
-let roadCurve = 0;
-let curveDirection = 1;
+
 ["left","right","up","down"].forEach(id => {
   const btn = document.getElementById(id);
 
@@ -560,12 +559,7 @@ document.getElementById("down").addEventListener("touchend", () => keys["ArrowDo
 function animate() {
 
     requestAnimationFrame(animate);
-    // ROAD CURVE
-roadCurve += 0.02 * curveDirection * speed;
-
-if (roadCurve > 3) curveDirection = -1;
-if (roadCurve < -3) curveDirection = 1;
-
+    
     // Car always moves forward
     // ACCELERATOR
 if (keys["ArrowUp"] || keys["w"]) {
@@ -615,7 +609,7 @@ camera.position.y = 5;
 // MOVE LANE LINES
 laneLines.forEach(line => {
 
-line.position.x += (roadCurve - line.position.x) * 0.03;   
+line.position.z += speed;
 
     if (line.position.z > car.position.z + 20) {
 
@@ -625,7 +619,7 @@ line.position.x += (roadCurve - line.position.x) * 0.03;
 });
 leftEdge.forEach(line => {
 
-   line.position.x += ((-5.8 + roadCurve) - line.position.x) * 0.03; 
+   line.position.z += speed;
 
     if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
@@ -635,7 +629,7 @@ leftEdge.forEach(line => {
 
 rightEdge.forEach(line => {
 
-    line.position.x += ((5.8 + roadCurve) - line.position.x) * 0.03;
+ line.position.z += speed;   
 
     if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
@@ -645,23 +639,18 @@ rightEdge.forEach(line => {
     // ROAD CURVE
 
 
-if (roadOffset > 2.5) roadDirection = -1;
-if (roadOffset < -2.5) roadDirection = 1;
+;
 // ENDLESS ROAD
 
-roads.forEach((road, index) => {
+roads.forEach((road) => {
 
     road.position.z += speed;
 
-    if (road.position.z > car.position.z + pieceLength) {
+    if (road.position.z > car.position.z + 100) {
 
-        road.position.z -= roadLength * pieceLength;
+        road.position.z -= 1000;
 
     }
-
-    const targetX = Math.sin((road.position.z + index * 25) * 0.01) * 4;
-
-    road.position.x += (targetX - road.position.x) * 0.08;
 
 });
     // MOVE TREES
