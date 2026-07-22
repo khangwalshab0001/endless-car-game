@@ -563,6 +563,11 @@ document.getElementById("down").addEventListener("touchend", () => keys["ArrowDo
 function animate() {
 
     requestAnimationFrame(animate);
+    // ROAD CURVE
+roadCurve += 0.02 * curveDirection * speed;
+
+if (roadCurve > 3) curveDirection = -1;
+if (roadCurve < -3) curveDirection = 1;
 
     // Car always moves forward
     // ACCELERATOR
