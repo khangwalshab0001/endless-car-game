@@ -618,7 +618,7 @@ camera.position.y = 5;
 // MOVE LANE LINES
 laneLines.forEach(line => {
 
-    line.position.z += speed;
+line.position.x = roadCurve;    
 
     if (line.position.z > car.position.z + 20) {
 
@@ -628,7 +628,7 @@ laneLines.forEach(line => {
 });
 leftEdge.forEach(line => {
 
-    line.position.z += speed;
+   line.position.x = -5.8 + roadCurve; 
 
     if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
@@ -638,7 +638,7 @@ leftEdge.forEach(line => {
 
 rightEdge.forEach(line => {
 
-    line.position.z += speed;
+    line.position.x = 5.8 + roadCurve;
 
     if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
@@ -655,7 +655,7 @@ if (roadOffset < -2.5) roadDirection = 1;
 roads.forEach((road) => {
 
     road.position.z += speed;
-    road.position.x = roadOffset;
+    road.position.x = roadCurve;
     if (road.position.z > car.position.z + 100) {
 
         road.position.z -= 1000;
