@@ -764,3 +764,23 @@ if (keys["ArrowRight"]) car.position.x += 0.15;
 
 
 // Resize
+function checkOrientation() {
+
+    const rotate = document.getElementById("rotateScreen");
+
+    if (window.innerWidth < window.innerHeight) {
+        rotate.style.display = "flex";
+        renderer.domElement.style.display = "none";
+        document.getElementById("controls").style.display = "none";
+    } else {
+        rotate.style.display = "none";
+        renderer.domElement.style.display = "block";
+        document.getElementById("controls").style.display = "flex";
+    }
+
+}
+
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+
+checkOrientation();
