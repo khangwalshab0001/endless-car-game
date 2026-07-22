@@ -648,7 +648,7 @@ if (roadOffset < -2.5) roadDirection = 1;
 roads.forEach((road) => {
 
     road.position.z += speed;
-
+    road.position.x = roadOffset;
     if (road.position.z > car.position.z + 100) {
 
         road.position.z -= 1000;
