@@ -344,6 +344,26 @@ car.add(wheel(-1.18,-1.6));
 car.add(wheel(1.18,-1.6));
 
 scene.add(car);
+// TRAFFIC CARS
+const trafficCars = [];
+
+function createTrafficCar(x, z, color = 0xff0000) {
+
+    const enemy = new THREE.Group();
+
+    const body = new THREE.Mesh(
+        new THREE.BoxGeometry(2.2, 0.8, 4),
+        new THREE.MeshStandardMaterial({ color })
+    );
+
+    body.position.y = 0.7;
+    enemy.add(body);
+
+    enemy.position.set(x, 0, z);
+
+    scene.add(enemy);
+    trafficCars.push(enemy);
+}
 // TREES
 const trees = [];
 
@@ -380,6 +400,11 @@ for (let i = 0; i < 40; i++) {
     createTree(10, -i * 25);
 
 }
+createTrafficCar(-2, -80, 0xff0000);
+createTrafficCar(2, -160, 0x0066ff);
+createTrafficCar(0, -240, 0xffff00);
+createTrafficCar(-2, -320, 0xffffff);
+createTrafficCar(2, -400, 0x00ff66);
 camera.position.set(0,4,8);
 // ROAD
 // ROAD SEGMENTS
