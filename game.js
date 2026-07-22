@@ -632,7 +632,21 @@ roads.forEach((road) => {
 });
     // MOVE TREES
 trees.forEach(tree => {
+// COLLISION
+trafficCars.forEach(enemy => {
 
+    const dx = Math.abs(car.position.x - enemy.position.x);
+    const dz = Math.abs(car.position.z - enemy.position.z);
+
+    if (dx < 1.8 && dz < 3.5) {
+
+        alert("💥 Game Over!");
+
+        location.reload();
+
+    }
+
+});
     tree.position.z += 0.25;
 
     if (tree.position.z > car.position.z + 20) {
