@@ -414,7 +414,7 @@ const roads = [];
 for (let i = 0; i < 5; i++) {
 
     const road = new THREE.Mesh(
-       new THREE.PlaneGeometry(12, 200) 
+       new THREE.PlaneGeometry(12, 200), 
         new THREE.MeshStandardMaterial({
             color: 0x333333
         })
