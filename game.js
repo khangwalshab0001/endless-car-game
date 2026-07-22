@@ -653,15 +653,19 @@ if (roadOffset > 2.5) roadDirection = -1;
 if (roadOffset < -2.5) roadDirection = 1;
 // ENDLESS ROAD
 
-roads.forEach((road) => {
+roads.forEach((road, index) => {
 
     road.position.z += speed;
-    
-    if (road.position.z > car.position.z + 100) {
 
-        road.position.z -= 1000;
+    if (road.position.z > car.position.z + pieceLength) {
+
+        road.position.z -= roadLength * pieceLength;
 
     }
+
+    const targetX = Math.sin((road.position.z + index * 25) * 0.01) * 4;
+
+    road.position.x += (targetX - road.position.x) * 0.08;
 
 });
     // MOVE TREES
