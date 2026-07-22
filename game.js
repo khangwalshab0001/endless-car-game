@@ -561,25 +561,25 @@ function animate() {
     requestAnimationFrame(animate);
 
     // Car always moves forward
-    // Acceleration System
-if (typeof speed === "undefined") {
-    speed = 0;
-}
-
+    // ACCELERATOR
 if (keys["ArrowUp"] || keys["w"]) {
     speed += 0.01;
 }
 
+// BRAKE
 if (keys["ArrowDown"] || keys["s"]) {
-    speed -= 0.02;
+    speed -= 0.03;
 }
 
-speed *= 0.98;
+// NATURAL FRICTION
+if (!(keys["ArrowUp"] || keys["w"])) {
+    speed *= 0.985;
+}
 
+// LIMITS
 if (speed < 0) speed = 0;
 if (speed > 0.6) speed = 0.6;
 
-car.position.z -= speed;
 
     // Left
     if (keys["ArrowLeft"] || keys["a"]) {
@@ -651,7 +651,16 @@ roads.forEach((road) => {
 });
     // MOVE TREES
 trees.forEach(tree => {
-// COLLISION
+    tree.position.z += speed;
+
+    if (tree.position.z > car.position.z + 20) {
+
+        tree.position.z -= 1000;
+
+    }
+
+});
+    // COLLISION
 trafficCars.forEach(enemy => {
 
     const dx = Math.abs(car.position.x - enemy.position.x);
@@ -660,17 +669,7 @@ trafficCars.forEach(enemy => {
     if (dx < 1.8 && dz < 3.5) {
 
         alert("💥 Game Over!");
-
         location.reload();
-
-    }
-
-});
-    tree.position.z += speed;
-
-    if (tree.position.z > car.position.z + 20) {
-
-        tree.position.z -= 1000;
 
     }
 
