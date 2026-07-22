@@ -607,19 +607,27 @@ if (keys["ArrowUp"] || keys["w"]) {
     speed += 0.01;
 }
 
-// BRAKE
+// BRAKE / REVERSE
 if (keys["ArrowDown"] || keys["s"]) {
-    speed -= 0.03;
+
+    if (speed > 0) {
+        // Pehle brake
+        speed -= 0.03;
+    } else {
+        // Phir reverse
+        speed -= 0.008;
+    }
+
 }
 
 // NATURAL FRICTION
-if (!(keys["ArrowUp"] || keys["w"])) {
+if (!(keys["ArrowUp"] || keys["ArrowDown"] || keys["w"] || keys["s"])) {
     speed *= 0.985;
 }
 
-// LIMITS
-if (speed < 0) speed = 0;
+// SPEED LIMIT
 if (speed > 0.6) speed = 0.6;
+if (speed < -0.18) speed = -0.18;
 
 
 const steerSpeed = Math.max(0.08, speed * 0.35);
