@@ -407,11 +407,7 @@ createTrafficCar(-2, -80, 0xffffff);
 createTrafficCar(2, -100, 0x00ff66);
 camera.position.set(0,4,8);
 // ROAD
-let roadOffset = 0;
-let roadDirection = 1;
-const roadPieces = [];
-const roadLength = 40;
-const pieceLength = 25;
+
 // ROAD SEGMENTS
 const roads = [];
 
@@ -647,7 +643,7 @@ rightEdge.forEach(line => {
 
 });
     // ROAD CURVE
-roadOffset += 0.01 * speed * roadDirection;
+
 
 if (roadOffset > 2.5) roadDirection = -1;
 if (roadOffset < -2.5) roadDirection = 1;
