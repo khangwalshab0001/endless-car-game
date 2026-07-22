@@ -650,7 +650,8 @@ rightEdge.forEach(line => {
 roads.forEach((road) => {
 
     road.position.z += speed;
-
+const targetX = Math.sin((road.position.z * 0.01) + roadCurve) * 4;
+road.position.x += (targetX - road.position.x) * 0.08;
     if (road.position.z > car.position.z + 100) {
 
         road.position.z -= 1000;
