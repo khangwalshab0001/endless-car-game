@@ -609,7 +609,7 @@ camera.position.y = 5;
 // MOVE LANE LINES
 laneLines.forEach(line => {
 
-    line.position.z += 0.25;
+    line.position.z += speed;
 
     if (line.position.z > car.position.z + 20) {
 
@@ -619,7 +619,7 @@ laneLines.forEach(line => {
 });
 leftEdge.forEach(line => {
 
-    line.position.z += 0.25;
+    line.position.z += speed;
 
     if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
@@ -629,7 +629,7 @@ leftEdge.forEach(line => {
 
 rightEdge.forEach(line => {
 
-    line.position.z += 0.25;
+    line.position.z += speed;
 
     if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
@@ -640,7 +640,7 @@ rightEdge.forEach(line => {
 
 roads.forEach((road) => {
 
-    road.position.z += 0.25;
+    road.position.z += speed;
 
     if (road.position.z > car.position.z + 100) {
 
@@ -666,7 +666,7 @@ trafficCars.forEach(enemy => {
     }
 
 });
-    tree.position.z += 0.25;
+    tree.position.z += speed;
 
     if (tree.position.z > car.position.z + 20) {
 
@@ -678,7 +678,7 @@ trafficCars.forEach(enemy => {
    // MOVE TRAFFIC CARS
 trafficCars.forEach(carObj => {
 
-    carObj.position.z += 0.25;
+    carObj.position.z += speed;
 
     // Jab car player ke paas se nikal jaye to use aage bhej do
     if (carObj.position.z > car.position.z + 30) {
