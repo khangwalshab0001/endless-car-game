@@ -658,18 +658,17 @@ if (car.position.x > 3)
 } else {
 
     // Reverse Camera
-    camera.position.set(
-        car.position.x,
-        5,
-        car.position.z - 10
-    );
+   camera.position.set(
+    car.position.x,
+    5,
+    car.position.z - 10
+);
 
-}
-
+// Camera ko reverse direction me dekhao
 camera.lookAt(
     car.position.x,
     1.5,
-    car.position.z
+    car.position.z - 20
 );
 // MOVE LANE LINES
 laneLines.forEach(line => {
