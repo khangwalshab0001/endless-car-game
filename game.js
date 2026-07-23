@@ -646,55 +646,51 @@ if (car.position.x < -3)
 if (car.position.x > 3)
     car.position.x = 3;
     
-line.position.z += speed;
-line.position.x = 0;
-   if (speed >= 0) {
-
-    if (line.position.z > car.position.z + 20) {
-        line.position.z -= 480;
-    }
-
-} else {
-
-    if (line.position.z < car.position.z - 460) {
-        line.position.z += 480;
-    }
 // Camera Follow
 if (speed >= 0) {
 
-    // Forward Camera
     camera.position.set(
         car.position.x,
         5,
         car.position.z + 10
     );
 
-    camera.lookAt(
-        car.position.x,
-        1.5,
-        car.position.z
-    );
-
 } else {
 
-    // Reverse Camera
     camera.position.set(
         car.position.x,
         5,
         car.position.z - 10
     );
 
-    camera.lookAt(
-        car.position.x,
-        1.5,
-        car.position.z
-    );
-
 }
+
+camera.lookAt(
+    car.position.x,
+    1.5,
+    car.position.z
+);
 
 // MOVE LANE LINES
 laneLines.forEach(line => {
-}
+
+    line.position.z += speed;
+
+    if (speed >= 0) {
+
+        if (line.position.z > car.position.z + 20) {
+            line.position.z -= 480;
+        }
+
+    } else {
+
+        if (line.position.z < car.position.z - 460) {
+            line.position.z += 480;
+        }
+
+    }
+
+});
 
     }
 });
