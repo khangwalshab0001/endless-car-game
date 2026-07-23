@@ -675,9 +675,19 @@ laneLines.forEach(line => {
 
 line.position.z += speed;
 line.position.x = 0;
-    if (line.position.z > car.position.z + 20) {
+   if (speed >= 0) {
 
+    if (line.position.z > car.position.z + 20) {
         line.position.z -= 480;
+    }
+
+} else {
+
+    if (line.position.z < car.position.z - 460) {
+        line.position.z += 480;
+    }
+
+}
 
     }
 });
@@ -707,10 +717,18 @@ rightEdge.forEach(line => {
 roads.forEach((road) => {
 
     road.position.z += speed;
-    road.position.x = 0;
-    if (road.position.z > car.position.z + 100) {
 
-        road.position.z -= 1000;
+    if (speed >= 0) {
+
+        if (road.position.z > car.position.z + 100) {
+            road.position.z -= 1000;
+        }
+
+    } else {
+
+        if (road.position.z < car.position.z - 900) {
+            road.position.z += 1000;
+        }
 
     }
 
