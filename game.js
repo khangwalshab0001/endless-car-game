@@ -646,11 +646,25 @@ if (car.position.x < -3)
 if (car.position.x > 3)
     car.position.x = 3;
     // Camera Follow
+    if (speed >= 0) {
+
+    // Forward Camera
     camera.position.set(
-    car.position.x,
-    5,
-    car.position.z + 10
-);
+        car.position.x,
+        5,
+        car.position.z + 10
+    );
+
+} else {
+
+    // Reverse Camera
+    camera.position.set(
+        car.position.x,
+        5,
+        car.position.z - 10
+    );
+
+}
 
 camera.lookAt(
     car.position.x,
