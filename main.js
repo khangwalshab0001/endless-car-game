@@ -1,38 +1,22 @@
-import {
-    scene,
-    camera,
-    renderer
-} from "./core/scene.js";
-import { createPlayer } from "./models/player.js";
-import { createRoad } from "./world/road.js";
-camera.position.set(0, 12, 18);
+import { scene, camera, renderer } from "./core/scene.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
-camera.lookAt(0, 0, -40);
+const cube = new THREE.Mesh(
+    new THREE.BoxGeometry(2,2,2),
+    new THREE.MeshStandardMaterial({ color: 0xff0000 })
+);
 
-scene.add(player);
-const road = createRoad(scene);
-camera.lookAt(player.position);
-function animate() {
+scene.add(cube);
 
+camera.position.set(0,2,6);
+camera.lookAt(cube.position);
+
+function animate(){
     requestAnimationFrame(animate);
 
-    renderer.render(scene, camera);
+    cube.rotation.y += 0.01;
 
+    renderer.render(scene,camera);
 }
 
 animate();
-
-window.addEventListener("resize", () => {
-
-    renderer.setSize(
-        window.innerWidth,
-        window.innerHeight
-    );
-
-    camera.aspect =
-        window.innerWidth /
-        window.innerHeight;
-
-    camera.updateProjectionMatrix();
-
-});
