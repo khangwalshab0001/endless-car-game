@@ -5,8 +5,9 @@ import {
 } from "./core/scene.js";
 import { createPlayer } from "./models/player.js";
 import { createRoad } from "./world/road.js";
-camera.position.set(0, 5, 10);
-const player = createPlayer();
+camera.position.set(0, 12, 18);
+
+camera.lookAt(0, 0, -40);
 
 scene.add(player);
 const road = createRoad(scene);
