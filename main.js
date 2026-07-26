@@ -5,9 +5,8 @@ const player = createPlayer();
 
 scene.add(player);
 createRoad(scene);
-camera.position.set(0, 2, 8);
-camera.lookAt(player.position);
-
+camera.position.set(0, 15, 20);
+camera.lookAt(0, 0, -20);
 function animate() {
     requestAnimationFrame(animate);
 
