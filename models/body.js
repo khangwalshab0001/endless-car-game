@@ -1,4 +1,4 @@
-simport * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
 export function createBody() {
 
@@ -31,9 +31,7 @@ export function createBody() {
 
     body.add(roof);
 
-    return body;
-
-}
+    
 // Bonnet
 
 const bonnet = new THREE.Mesh(
@@ -74,3 +72,5 @@ body.add(rlArch);
 const rrArch = flArch.clone();
 rrArch.position.set(1.15,0.75,-1.45);
 body.add(rrArch);
+return body;
+}
