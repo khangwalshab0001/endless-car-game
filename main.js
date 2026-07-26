@@ -2,9 +2,12 @@ import { scene, camera, renderer } from "./core/scene.js";
 import { createPlayer } from "./models/player.js";
 import { createRoad } from "./js/world/road.js";
 import { createMap } from "./js/world/map.js";
+import { createHouse } from "./js/village/house.js";
 const player = createPlayer();
 
 scene.add(player);
+const house = createHouse();
+scene.add(house);
 createMap(scene);
 createRoad(scene);
 
