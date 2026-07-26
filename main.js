@@ -1,6 +1,6 @@
 import { scene, camera, renderer } from "./core/scene.js";
 import { createPlayer } from "./models/player.js";
-import { createRoad } from "./world/road.js";
+import { createRoad } from "./js/world/road.js";
 const player = createPlayer();
 
 scene.add(player);
