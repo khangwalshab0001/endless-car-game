@@ -4,7 +4,7 @@ export function createRoad(scene){
 
     const road = new THREE.Mesh(
 
-        new THREE.PlaneGeometry(20,300),
+       new THREE.PlaneGeometry(24,3000)
 
         new THREE.MeshStandardMaterial({
             color:0x333333
