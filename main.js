@@ -1,10 +1,10 @@
 import { scene, camera, renderer } from "./core/scene.js";
 import { createPlayer } from "./models/player.js";
-
+import { createRoad } from "./world/road.js";
 const player = createPlayer();
 
 scene.add(player);
-
+createRoad(scene);
 camera.position.set(0, 2, 8);
 camera.lookAt(player.position);
 
