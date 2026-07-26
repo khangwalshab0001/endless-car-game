@@ -5,8 +5,7 @@ import { createMap } from "./js/world/map.js";
 const player = createPlayer();
 
 scene.add(player);
-
-// createMap(scene);
+createMap(scene);
 createRoad(scene);
 
 camera.position.set(0,4,10);
