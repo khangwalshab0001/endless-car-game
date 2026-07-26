@@ -3,9 +3,13 @@ import {
     camera,
     renderer
 } from "./core/scene.js";
-
+import { createPlayer } from "./models/player.js";
 camera.position.set(0, 5, 10);
+const player = createPlayer();
 
+scene.add(player);
+
+camera.lookAt(player.position);
 function animate() {
 
     requestAnimationFrame(animate);
