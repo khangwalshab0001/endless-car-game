@@ -5,9 +5,11 @@ import { createMap } from "./js/world/map.js";
 const player = createPlayer();
 
 scene.add(player);
-createRoad(scene);
+
 createMap(scene);
-camera.position.set(0, 4, 10);
+createRoad(scene);
+
+camera.position.set(0,4,10);
 camera.lookAt(player.position);
 function animate() {
     requestAnimationFrame(animate);
