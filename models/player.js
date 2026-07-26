@@ -1,6 +1,7 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 import { createBody } from "./body.js";
 import { createWheels } from "./wheels.js";
+import { createWindows } from "./windows.js";
 export function createPlayer() {
 
     const car = new THREE.Group();
