@@ -1,23 +1,17 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
-export function createRoad(scene){
+export function createRoad(scene) {
 
     const road = new THREE.Mesh(
-
-       new THREE.PlaneGeometry(24,3000)
-
+        new THREE.BoxGeometry(20, 0.2, 300),
         new THREE.MeshStandardMaterial({
-            color:0x333333
+            color: 0x333333
         })
-
     );
 
-    road.rotation.x = -Math.PI/2;
-
-    road.position.y = 0.05;
+    road.position.set(0, 0.1, 0);
 
     scene.add(road);
 
     return road;
-
 }
