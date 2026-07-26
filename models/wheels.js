@@ -1,41 +1,35 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
-export function createWheels() {
+export function createWheel(x, z) {
 
-    const wheels = new THREE.Group();
+    const wheel = new THREE.Group();
 
-    function wheel(x, z) {
+    // Tyre
+    const tyre = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.42, 0.42, 0.32, 32),
+        new THREE.MeshStandardMaterial({
+            color: 0x111111,
+            roughness: 0.9
+        })
+    );
 
-        const tyre = new THREE.Mesh(
+    tyre.rotation.z = Math.PI / 2;
+    wheel.add(tyre);
 
-            new THREE.CylinderGeometry(
-                0.5,
-                0.5,
-                0.4,
-                32
-            ),
+    // Rim
+    const rim = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.22, 0.22, 0.34, 24),
+        new THREE.MeshStandardMaterial({
+            color: 0xbdbdbd,
+            metalness: 0.9,
+            roughness: 0.2
+        })
+    );
 
-            new THREE.MeshStandardMaterial({
-                color: 0x111111,
-                roughness: 1
-            })
+    rim.rotation.z = Math.PI / 2;
+    wheel.add(rim);
 
-        );
+    wheel.position.set(x, 0.42, z);
 
-        tyre.rotation.z = Math.PI / 2;
-
-        tyre.position.set(x, 0.5, z);
-
-        wheels.add(tyre);
-
-    }
-
-    wheel(-1.2, 1.6);
-    wheel(1.2, 1.6);
-
-    wheel(-1.2, -1.6);
-    wheel(1.2, -1.6);
-
-    return wheels;
-
+    return wheel;
 }
