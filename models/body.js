@@ -34,3 +34,17 @@ export function createBody() {
     return body;
 
 }
+// Bonnet
+
+const bonnet = new THREE.Mesh(
+    new THREE.BoxGeometry(2.1, 0.35, 1.2),
+    new THREE.MeshStandardMaterial({
+        color: 0x111111,
+        metalness: 0.65,
+        roughness: 0.35
+    })
+);
+
+bonnet.position.set(0, 0.95, 1.85);
+
+body.add(bonnet);
