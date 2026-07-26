@@ -14,7 +14,7 @@ export function createRoad(scene){
 
     road.rotation.x = -Math.PI/2;
 
-    road.position.y = -0.1;
+    road.position.y = 0.05;
 
     scene.add(road);
 
