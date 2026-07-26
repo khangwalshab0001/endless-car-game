@@ -10,6 +10,8 @@ export function createPlayer() {
     car.add(body);
     const wheels = createWheels();
 car.add(wheels);
+    const windows = createWindows();
+car.add(windows);
     car.position.set(0, 0, 0);
 
     return car;
