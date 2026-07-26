@@ -4,6 +4,7 @@ import { createWheels } from "./wheels.js";
 import { createWindows } from "./windows.js";
 import { createHeadlights } from "./headlights.js";
 import { createGrille } from "./grille.js";
+import { createBumper } from "./bumper.js";
 export function createPlayer() {
 
     const car = new THREE.Group();
@@ -18,6 +19,8 @@ car.add(windows);
 car.add(headlights);
     const grille = createGrille();
 car.add(grille);
+    const bumper = createBumper();
+car.add(bumper);
     car.position.set(0, 0, 0);
 
     return car;
