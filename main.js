@@ -10,6 +10,12 @@ camera.lookAt(player.position);
 function animate() {
     requestAnimationFrame(animate);
 
+    camera.position.x = player.position.x;
+    camera.position.y = 4;
+    camera.position.z = player.position.z + 8;
+
+    camera.lookAt(player.position);
+
     renderer.render(scene, camera);
 }
 
