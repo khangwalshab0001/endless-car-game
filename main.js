@@ -1,22 +1,17 @@
 import { scene, camera, renderer } from "./core/scene.js";
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
+import { createPlayer } from "./models/player.js";
 
-const cube = new THREE.Mesh(
-    new THREE.BoxGeometry(2,2,2),
-    new THREE.MeshStandardMaterial({ color: 0xff0000 })
-);
+const player = createPlayer();
 
-scene.add(cube);
+scene.add(player);
 
-camera.position.set(0,2,6);
-camera.lookAt(cube.position);
+camera.position.set(0, 2, 8);
+camera.lookAt(player.position);
 
-function animate(){
+function animate() {
     requestAnimationFrame(animate);
 
-    cube.rotation.y += 0.01;
-
-    renderer.render(scene,camera);
+    renderer.render(scene, camera);
 }
 
 animate();
