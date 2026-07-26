@@ -4,11 +4,12 @@ import {
     renderer
 } from "./core/scene.js";
 import { createPlayer } from "./models/player.js";
+import { createRoad } from "./world/road.js";
 camera.position.set(0, 5, 10);
 const player = createPlayer();
 
 scene.add(player);
-
+const road = createRoad(scene);
 camera.lookAt(player.position);
 function animate() {
 
