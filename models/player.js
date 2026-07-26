@@ -2,33 +2,14 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.mod
 
 export function createPlayer() {
 
-    const car = new THREE.Group();
-
-    // Body
-    const body = new THREE.Mesh(
-        new THREE.BoxGeometry(2.4, 0.9, 4.6),
+    const player = new THREE.Mesh(
+        new THREE.BoxGeometry(2, 2, 4),
         new THREE.MeshStandardMaterial({
-            color: 0x111111,
-            metalness: 0.5,
-            roughness: 0.4
+            color: 0xff0000
         })
     );
 
-    body.position.y = 0.8;
-    car.add(body);
+    player.position.set(0, 1, 0);
 
-    // Roof
-    const roof = new THREE.Mesh(
-        new THREE.BoxGeometry(1.8,0.7,2.5),
-        new THREE.MeshStandardMaterial({
-            color:0x1a1a1a
-        })
-    );
-
-    roof.position.set(0,1.55,-0.1);
-    car.add(roof);
-
-    car.position.set(0,0,0);
-
-    return car;
+    return player;
 }
