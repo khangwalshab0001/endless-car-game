@@ -133,15 +133,28 @@ camera.lookAt(player.position);
 function animate() {
     requestAnimationFrame(animate);
 
-    camera.position.x = player.position.x;
-    camera.position.y = 4;
-    camera.position.z = player.position.z + 10;
+    camera.position.x += (player.position.x - camera.position.x) * 0.10;
+camera.position.y = 4;
+camera.position.z += ((player.position.z + 10) - camera.position.z) * 0.10;
 
     camera.lookAt(player.position);
-if (keys.up) player.position.z -= 0.25;
-if (keys.down) player.position.z += 0.25;
-if (keys.left) player.position.x -= 0.20;
-if (keys.right) player.position.x += 0.20;
+// Forward / Backward
+if (keys.up) {
+    player.translateZ(-0.25);
+}
+
+if (keys.down) {
+    player.translateZ(0.15);
+}
+
+// Steering
+if (keys.left) {
+    player.rotation.y += 0.04;
+}
+
+if (keys.right) {
+    player.rotation.y -= 0.04;
+}
     renderer.render(scene, camera);
 }
 
