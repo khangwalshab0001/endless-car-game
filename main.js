@@ -5,6 +5,7 @@ import { createMap } from "./js/world/map.js";
 import { createHouse } from "./js/village/house.js";
 import { createTree } from "./js/village/tree.js";
 import { createPole } from "./js/village/pole.js";
+import { createShop } from "./js/village/shop.js";
 const player = createPlayer();
 
 scene.add(player);
@@ -86,6 +87,10 @@ for (let i = -60; i <= 60; i += 20) {
 
     scene.add(pole);
 }
+const shop = createShop();
+shop.position.set(20, 0, -15);
+
+scene.add(shop);
 createMap(scene);
 createRoad(scene);
 
