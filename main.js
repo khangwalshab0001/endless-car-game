@@ -4,6 +4,7 @@ import { createRoad } from "./js/world/road.js";
 import { createMap } from "./js/world/map.js";
 import { createHouse } from "./js/village/house.js";
 import { createTree } from "./js/village/tree.js";
+import { createPole } from "./js/village/pole.js";
 const player = createPlayer();
 
 scene.add(player);
@@ -67,6 +68,23 @@ for (let i = 0; i < 8; i++) {
     );
 
     scene.add(tree);
+}
+// Left side poles
+for (let i = -60; i <= 60; i += 20) {
+
+    const pole = createPole();
+    pole.position.set(-13, 0, i);
+
+    scene.add(pole);
+}
+
+// Right side poles
+for (let i = -60; i <= 60; i += 20) {
+
+    const pole = createPole();
+    pole.position.set(13, 0, i);
+
+    scene.add(pole);
 }
 createMap(scene);
 createRoad(scene);
