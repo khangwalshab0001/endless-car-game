@@ -15,7 +15,22 @@ const keys = {
     left: false,
     right: false
 };
+const upBtn = document.getElementById("up");
+const downBtn = document.getElementById("down");
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
 
+upBtn.addEventListener("touchstart", () => keys.up = true);
+upBtn.addEventListener("touchend", () => keys.up = false);
+
+downBtn.addEventListener("touchstart", () => keys.down = true);
+downBtn.addEventListener("touchend", () => keys.down = false);
+
+leftBtn.addEventListener("touchstart", () => keys.left = true);
+leftBtn.addEventListener("touchend", () => keys.left = false);
+
+rightBtn.addEventListener("touchstart", () => keys.right = true);
+rightBtn.addEventListener("touchend", () => keys.right = false);
 let speed = 0;
 scene.add(player);
 const house = createHouse();
@@ -120,7 +135,7 @@ function animate() {
 
     camera.position.x = player.position.x;
     camera.position.y = 4;
-    camera.position.z = player.position.z + 8;
+    camera.position.z = player.position.z + 10;
 
     camera.lookAt(player.position);
 if (keys.up) player.position.z -= 0.25;
