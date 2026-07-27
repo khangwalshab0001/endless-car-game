@@ -9,6 +9,33 @@ const player = createPlayer();
 scene.add(player);
 const house = createHouse();
 scene.add(house);
+// More village houses
+
+for (let i = 0; i < 8; i++) {
+
+    const newHouse = createHouse();
+
+    newHouse.position.set(
+        -40 + (i * 12),
+        0,
+        -45
+    );
+
+    scene.add(newHouse);
+}
+
+for (let i = 0; i < 8; i++) {
+
+    const newHouse = createHouse();
+
+    newHouse.position.set(
+        -40 + (i * 12),
+        0,
+        45
+    );
+
+    scene.add(newHouse);
+}
 // Village Trees
 // Left side trees
 for (let i = -60; i <= 60; i += 12) {
