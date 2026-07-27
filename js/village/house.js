@@ -1,6 +1,6 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
-export function createHouse() {
+export function createHouse(colliders) {
 
     const house = new THREE.Group();
 
@@ -57,6 +57,17 @@ export function createHouse() {
     house.add(rightWindow);
 
     house.position.set(0, 0, -20);
+const collisionBox = new THREE.Mesh(
+    new THREE.BoxGeometry(7.5, 5, 7.5),
+    new THREE.MeshBasicMaterial({
+        visible: false
+    })
+);
 
+collisionBox.position.set(0, 2.5, 0);
+
+house.add(collisionBox);
+
+house.userData.collider = collisionBox;
     return house;
 }
