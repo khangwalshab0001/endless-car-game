@@ -1,7 +1,6 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
-export function createHouse(colliders) {
-
+export function createHouse() {
     const house = new THREE.Group();
 
     // Walls
