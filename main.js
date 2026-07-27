@@ -9,7 +9,14 @@ import { createShop } from "./js/village/shop.js";
 import { createTemple } from "./js/village/temple.js";
 import { createField } from "./js/village/field.js";
 const player = createPlayer();
+const keys = {
+    up: false,
+    down: false,
+    left: false,
+    right: false
+};
 
+let speed = 0;
 scene.add(player);
 const house = createHouse();
 scene.add(house);
@@ -116,7 +123,10 @@ function animate() {
     camera.position.z = player.position.z + 8;
 
     camera.lookAt(player.position);
-
+if (keys.up) player.position.z -= 0.25;
+if (keys.down) player.position.z += 0.25;
+if (keys.left) player.position.x -= 0.20;
+if (keys.right) player.position.x += 0.20;
     renderer.render(scene, camera);
 }
 
