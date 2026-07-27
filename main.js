@@ -35,14 +35,14 @@ rightBtn.addEventListener("touchstart", () => keys.right = true);
 rightBtn.addEventListener("touchend", () => keys.right = false);
 let speed = 0;
 scene.add(player);
-const house = createHouse();
+const house = createHouse(colliders);
 scene.add(house);
 colliders.push(house);
 // More village houses
 
 for (let i = 0; i < 8; i++) {
 
-    const newHouse = createHouse();
+  const newHouse = createHouse(colliders); 
 
     newHouse.position.set(
         -40 + (i * 12),
@@ -55,7 +55,7 @@ for (let i = 0; i < 8; i++) {
 
 for (let i = 0; i < 8; i++) {
 
-    const newHouse = createHouse();
+    const newHouse = createHouse(colliders);
 
     newHouse.position.set(
         -40 + (i * 12),
