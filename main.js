@@ -8,6 +8,7 @@ import { createPole } from "./js/village/pole.js";
 import { createShop } from "./js/village/shop.js";
 import { createTemple } from "./js/village/temple.js";
 import { createField } from "./js/village/field.js";
+import { checkCollision } from "./js/physics/collision.js";
 const player = createPlayer();
 const colliders = [];
 const keys = {
@@ -143,6 +144,9 @@ camera.position.z += ((player.position.z + 10) - camera.position.z) * 0.10;
 
     camera.lookAt(player.position);
 // Forward / Backward
+const oldX = player.position.x;
+const oldZ = player.position.z;
+
 if (keys.up) {
     player.translateZ(-0.25);
 }
@@ -151,13 +155,17 @@ if (keys.down) {
     player.translateZ(0.15);
 }
 
-// Steering
 if (keys.left) {
     player.rotation.y += 0.04;
 }
 
 if (keys.right) {
     player.rotation.y -= 0.04;
+}
+
+if (checkCollision(player, colliders)) {
+    player.position.x = oldX;
+    player.position.z = oldZ;
 }
     renderer.render(scene, camera);
 }
