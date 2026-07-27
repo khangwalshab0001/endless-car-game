@@ -9,6 +9,7 @@ import { createShop } from "./js/village/shop.js";
 import { createTemple } from "./js/village/temple.js";
 import { createField } from "./js/village/field.js";
 const player = createPlayer();
+const colliders = [];
 const keys = {
     up: false,
     down: false,
@@ -35,6 +36,7 @@ let speed = 0;
 scene.add(player);
 const house = createHouse();
 scene.add(house);
+colliders.push(house);
 // More village houses
 
 for (let i = 0; i < 8; i++) {
@@ -115,10 +117,12 @@ const shop = createShop();
 shop.position.set(20, 0, -15);
 
 scene.add(shop);
+colliders.push(shop);
 const temple = createTemple();
 temple.position.set(-25, 0, 25);
 
 scene.add(temple);
+colliders.push(temple);
 const field1 = createField();
 field1.position.set(45, 0, 35);
 scene.add(field1);
