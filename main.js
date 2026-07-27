@@ -10,14 +10,33 @@ scene.add(player);
 const house = createHouse();
 scene.add(house);
 // Village Trees
-for (let i = 0; i < 25; i++) {
+// Left side trees
+for (let i = -60; i <= 60; i += 12) {
+
+    const tree = createTree();
+    tree.position.set(-18, 0, i);
+
+    scene.add(tree);
+}
+
+// Right side trees
+for (let i = -60; i <= 60; i += 12) {
+
+    const tree = createTree();
+    tree.position.set(18, 0, i);
+
+    scene.add(tree);
+}
+
+// Trees near house
+for (let i = 0; i < 8; i++) {
 
     const tree = createTree();
 
     tree.position.set(
-        (Math.random() - 0.5) * 120,
+        -35 + Math.random() * 20,
         0,
-        (Math.random() - 0.5) * 120
+        -35 + Math.random() * 20
     );
 
     scene.add(tree);
