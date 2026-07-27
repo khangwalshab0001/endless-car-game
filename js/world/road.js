@@ -12,6 +12,21 @@ export function createRoad(scene) {
     road.position.set(0, 0.1, 0);
 
     scene.add(road);
+    // Left dirt shoulder
+const leftShoulder = new THREE.Mesh(
+    new THREE.BoxGeometry(3, 0.05, 300),
+    new THREE.MeshStandardMaterial({
+        color: 0x8B6B3F
+    })
+);
+
+leftShoulder.position.set(-11.5, 0.02, 0);
+scene.add(leftShoulder);
+
+// Right dirt shoulder
+const rightShoulder = leftShoulder.clone();
+rightShoulder.position.x = 11.5;
+scene.add(rightShoulder);
 // Center lane lines
 for (let i = -140; i < 150; i += 10) {
 
