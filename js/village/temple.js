@@ -49,6 +49,17 @@ export function createTemple() {
 
     flag.position.set(0.6, 9, 0);
     temple.add(flag);
+const collisionBox = new THREE.Mesh(
+    new THREE.BoxGeometry(5.8, 4, 5.8),
+    new THREE.MeshBasicMaterial({
+        visible: false
+    })
+);
 
+collisionBox.position.set(0, 2, 0);
+
+temple.add(collisionBox);
+
+temple.userData.collider = collisionBox;
     return temple;
 }
