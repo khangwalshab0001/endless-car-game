@@ -25,6 +25,17 @@ export function createTree() {
 
     leaves.position.y = 4;
     tree.add(leaves);
+const collisionBox = new THREE.Mesh(
+    new THREE.BoxGeometry(1.0, 3, 1.0),
+    new THREE.MeshBasicMaterial({
+        visible: false
+    })
+);
 
+collisionBox.position.set(0, 1.5, 0);
+
+tree.add(collisionBox);
+
+tree.userData.collider = collisionBox;
     return tree;
 }
