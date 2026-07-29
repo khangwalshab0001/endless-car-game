@@ -47,6 +47,17 @@ export function createShop() {
 
     board.position.set(0, 3.3, 2.6);
     shop.add(board);
+const collisionBox = new THREE.Mesh(
+    new THREE.BoxGeometry(5.8, 4, 4.8),
+    new THREE.MeshBasicMaterial({
+        visible: false
+    })
+);
 
+collisionBox.position.set(0, 2, 0);
+
+shop.add(collisionBox);
+
+shop.userData.collider = collisionBox;
     return shop;
 }
