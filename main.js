@@ -143,6 +143,21 @@ createRoad(scene);
 
 camera.position.set(0,4,10);
 camera.lookAt(player.position);
+function checkCollision() {
+
+    for (const object of colliders) {
+
+        if (!object.userData.collider) continue;
+
+        const objectBox = new THREE.Box3().setFromObject(object.userData.collider);
+
+        if (playerCollider.intersectsBox(objectBox)) {
+            return true;
+        }
+    }
+
+    return false;
+}
 function animate() {
     requestAnimationFrame(animate);
 
@@ -153,6 +168,8 @@ camera.position.z += ((player.position.z + 10) - camera.position.z) * 0.10;
     camera.lookAt(player.position);
 // Forward / Backward
 
+
+const oldPosition = player.position.clone();
 
 if (keys.up) {
     player.translateZ(-0.25);
@@ -174,6 +191,10 @@ playerCollider.setFromCenterAndSize(
     player.position.clone().setY(2.5),
     new THREE.Vector3(2.2, 5, 4.8)
 );
+
+if (checkCollision()) {
+    player.position.copy(oldPosition);
+}
     renderer.render(scene, camera);
 }
 
