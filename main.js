@@ -76,6 +76,7 @@ for (let i = -60; i <= 60; i += 12) {
     tree.position.set(-18, 0, i);
 
     scene.add(tree);
+    colliders.push(tree);
 }
 
 // Right side trees
