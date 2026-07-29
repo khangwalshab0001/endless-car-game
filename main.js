@@ -8,8 +8,9 @@ import { createPole } from "./js/village/pole.js";
 import { createShop } from "./js/village/shop.js";
 import { createTemple } from "./js/village/temple.js";
 import { createField } from "./js/village/field.js";
-
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 const player = createPlayer();
+const playerCollider = new THREE.Box3();
 const colliders = [];
 const keys = {
     up: false,
@@ -162,7 +163,10 @@ if (keys.right) {
     player.rotation.y -= 0.04;
 }
 
-
+playerCollider.setFromCenterAndSize(
+    player.position.clone().setY(2.5),
+    new THREE.Vector3(2.2, 5, 4.8)
+);
     renderer.render(scene, camera);
 }
 
