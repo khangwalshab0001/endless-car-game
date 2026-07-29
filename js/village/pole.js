@@ -25,6 +25,17 @@ export function createPole() {
 
     bar.position.y = 7.5;
     pole.add(bar);
+const collisionBox = new THREE.Mesh(
+    new THREE.BoxGeometry(0.8, 8, 0.8),
+    new THREE.MeshBasicMaterial({
+        visible: false
+    })
+);
 
+collisionBox.position.set(0, 4, 0);
+
+pole.add(collisionBox);
+
+pole.userData.collider = collisionBox;
     return pole;
 }
