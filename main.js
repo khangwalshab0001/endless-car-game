@@ -52,6 +52,7 @@ for (let i = 0; i < 8; i++) {
     );
 
     scene.add(newHouse);
+    colliders.push(newHouse);
 }
 
 for (let i = 0; i < 8; i++) {
@@ -65,6 +66,7 @@ for (let i = 0; i < 8; i++) {
     );
 
     scene.add(newHouse);
+    colliders.push(newHouse);
 }
 // Village Trees
 // Left side trees
@@ -83,6 +85,7 @@ for (let i = -60; i <= 60; i += 12) {
     tree.position.set(18, 0, i);
 
     scene.add(tree);
+    colliders.push(tree);
 }
 
 // Trees near house
@@ -97,6 +100,7 @@ for (let i = 0; i < 8; i++) {
     );
 
     scene.add(tree);
+    colliders.push(tree);
 }
 // Left side poles
 for (let i = -60; i <= 60; i += 20) {
@@ -105,6 +109,7 @@ for (let i = -60; i <= 60; i += 20) {
     pole.position.set(-13, 0, i);
 
     scene.add(pole);
+    colliders.push(pole);
 }
 
 // Right side poles
@@ -114,6 +119,7 @@ for (let i = -60; i <= 60; i += 20) {
     pole.position.set(13, 0, i);
 
     scene.add(pole);
+    colliders.push(pole);
 }
 const shop = createShop();
 shop.position.set(20, 0, -15);
