@@ -41,25 +41,29 @@ scene.add(player);
 
 const housePositions = [
 
-    // Main Road
-    { x: -45, z: -35 },
-    { x: -20, z: -25 },
-    { x: 15,  z: -30 },
-    { x: 42,  z: -18 },
+    // West Side
+    { x: -85, z: 18 },
+    { x: -70, z: 55 },
 
-    // Cross Road
-    { x: -38, z: 18 },
-    { x: -8,  z: 32 },
-    { x: 26,  z: 28 },
-    { x: 48,  z: 45 },
+    // North Side
+    { x: -28, z: 110 },
+    { x: 30, z: 110 },
 
-    // Left Lane
-    { x: -65, z: 65 },
-    { x: -58, z: 95 },
+    // East Side
+    { x: 70, z: 55 },
+    { x: 85, z: 18 },
 
-    // Right Lane
-    { x: 60, z: -60 },
-    { x: 68, z: -92 }
+    // South Side
+    { x: -45, z: -55 },
+    { x: 45, z: -55 },
+
+    // Village Inside
+    { x: -30, z: 45 },
+    { x: 30, z: 45 },
+
+    // Village Edge
+    { x: -65, z: 90 },
+    { x: 65, z: 90 }
 
 ];
 
