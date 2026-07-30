@@ -40,34 +40,43 @@ const house = createHouse();
 scene.add(house);
 colliders.push(house);
 // More village houses
+// Houses (Village Layout V2)
 
-for (let i = 0; i < 8; i++) {
+const housePositions = [
 
- const newHouse = createHouse();
+    // Main Road
+    { x: -45, z: -35 },
+    { x: -20, z: -25 },
+    { x: 15,  z: -30 },
+    { x: 42,  z: -18 },
 
-    newHouse.position.set(
-        -40 + (i * 12),
-        0,
-        -45
-    );
+    // Cross Road
+    { x: -38, z: 18 },
+    { x: -8,  z: 32 },
+    { x: 26,  z: 28 },
+    { x: 48,  z: 45 },
 
-    scene.add(newHouse);
-    colliders.push(newHouse);
-}
+    // Left Lane
+    { x: -65, z: 65 },
+    { x: -58, z: 95 },
 
-for (let i = 0; i < 8; i++) {
+    // Right Lane
+    { x: 60, z: -60 },
+    { x: 68, z: -92 }
 
-  const newHouse = createHouse(); 
+];
 
-    newHouse.position.set(
-        -40 + (i * 12),
-        0,
-        45
-    );
+housePositions.forEach(pos => {
 
-    scene.add(newHouse);
-    colliders.push(newHouse);
-}
+    const house = createHouse();
+
+    house.position.set(pos.x, 0, pos.z);
+
+    scene.add(house);
+    colliders.push(house);
+
+});
+
 // Village Trees
 // Left side trees
 for (let i = -60; i <= 60; i += 12) {
