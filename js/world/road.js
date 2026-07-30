@@ -12,8 +12,50 @@ export function createRoad(scene) {
     road.position.set(0, 0.1, -20);
 
     scene.add(road);
-   
-  
+   // Village Chowk
+const chowk = new THREE.Mesh(
+    new THREE.BoxGeometry(26, 0.2, 26),
+    new THREE.MeshStandardMaterial({
+        color: 0x333333
+    })
+);
+
+chowk.position.set(0, 0.1, 20);
+
+scene.add(chowk);
+ // North Road
+const northRoad = new THREE.Mesh(
+    new THREE.BoxGeometry(22, 0.2, 80),
+    new THREE.MeshStandardMaterial({
+        color: 0x333333
+    })
+);
+
+northRoad.position.set(0, 0.1, 73);
+
+scene.add(northRoad); 
+  // East Road
+const eastRoad = new THREE.Mesh(
+    new THREE.BoxGeometry(90, 0.2, 22),
+    new THREE.MeshStandardMaterial({
+        color: 0x333333
+    })
+);
+
+eastRoad.position.set(56, 0.1, 20);
+
+scene.add(eastRoad); 
+    // West Road
+const westRoad = new THREE.Mesh(
+    new THREE.BoxGeometry(90, 0.2, 22),
+    new THREE.MeshStandardMaterial({
+        color: 0x333333
+    })
+);
+
+westRoad.position.set(-56, 0.1, 20);
+
+scene.add(westRoad);
     // Left dirt shoulder
 const leftShoulder = new THREE.Mesh(
     new THREE.BoxGeometry(3, 0.05, 300),
