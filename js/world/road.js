@@ -3,11 +3,11 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.mod
 export function createRoad(scene) {
 
     const road = new THREE.Mesh(
-     new THREE.BoxGeometry(22, 0.2, 220)  
-        new THREE.MeshStandardMaterial({
-            color: 0x333333
-        })
-    );
+    new THREE.BoxGeometry(22, 0.2, 220),
+    new THREE.MeshStandardMaterial({
+        color: 0x333333
+    })
+);
 
     road.position.set(0, 0.1, -20);
 
