@@ -36,10 +36,7 @@ rightBtn.addEventListener("touchstart", () => keys.right = true);
 rightBtn.addEventListener("touchend", () => keys.right = false);
 let speed = 0;
 scene.add(player);
-const house = createHouse();
-scene.add(house);
-colliders.push(house);
-// More village houses
+
 // Houses (Village Layout V2)
 
 const housePositions = [
