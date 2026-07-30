@@ -12,39 +12,8 @@ export function createRoad(scene) {
     road.position.set(0, 0.1, -20);
 
     scene.add(road);
-    // Cross Road
-const crossRoad = new THREE.Mesh(
-    new THREE.BoxGeometry(140, 0.2, 22),
-    new THREE.MeshStandardMaterial({
-        color: 0x333333
-    })
-);
-
-crossRoad.position.set(0, 0.1, 20);
-
-scene.add(crossRoad);
-    // Left Side Lane
-const leftLane = new THREE.Mesh(
-    new THREE.BoxGeometry(18, 0.2, 90),
-    new THREE.MeshStandardMaterial({
-        color: 0x333333
-    })
-);
-
-leftLane.position.set(-55, 0.1, 55);
-
-scene.add(leftLane);
-    // Right Side Lane
-const rightLane = new THREE.Mesh(
-    new THREE.BoxGeometry(18, 0.2, 90),
-    new THREE.MeshStandardMaterial({
-        color: 0x333333
-    })
-);
-
-rightLane.position.set(55, 0.1, -55);
-
-scene.add(rightLane);
+   
+  
     // Left dirt shoulder
 const leftShoulder = new THREE.Mesh(
     new THREE.BoxGeometry(3, 0.05, 300),
