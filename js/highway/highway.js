@@ -6,11 +6,11 @@ export function createHighway() {
 
     // Main Highway
     const road = new THREE.Mesh(
-       new THREE.BoxGeometry(30, 0.2, 700)
-        new THREE.MeshStandardMaterial({
-            color: 0x2f2f2f
-        })
-    );
+    new THREE.BoxGeometry(30, 0.2, 700),
+    new THREE.MeshStandardMaterial({
+        color: 0x2f2f2f
+    })
+);
 
     road.position.set(0, 0.1, -250);
     highway.add(road);
