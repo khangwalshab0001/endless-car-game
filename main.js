@@ -133,12 +133,14 @@ for (let i = -60; i <= 60; i += 20) {
     colliders.push(pole);
 }
 const shop = createShop();
-shop.position.set(20, 0, -15);
+shop.position.set(32, 0, 28);
+shop.rotation.y = -Math.PI / 2;
 
 scene.add(shop);
 colliders.push(shop);
 const temple = createTemple();
-temple.position.set(-25, 0, 25);
+temple.position.set(-32, 0, 28);
+temple.rotation.y = Math.PI / 2;
 
 scene.add(temple);
 colliders.push(temple);
