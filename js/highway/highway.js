@@ -12,7 +12,7 @@ export function createHighway() {
     })
 );
 
-    road.position.set(0, 0.1, -250);
+   road.position.set(0, 0.1, -520);
     highway.add(road);
 // Highway Divider
 const divider = new THREE.Mesh(
@@ -22,7 +22,7 @@ const divider = new THREE.Mesh(
     })
 );
 
-divider.position.set(0, 0.3, -250);
+divider.position.set(0, 0.3, -520);
 
 highway.add(divider);
     // Left Lane Markings
@@ -60,7 +60,7 @@ const leftBarrier = new THREE.Mesh(
     })
 );
 
-leftBarrier.position.set(-15, 0.5, -250);
+leftBarrier.position.set(-15, 0.5, -520);
 highway.add(leftBarrier);
 
 // Right Barrier
@@ -75,7 +75,7 @@ const leftGrass = new THREE.Mesh(
     })
 );
 
-leftGrass.position.set(-20, 0.02, -250);
+leftGrass.position.set(-20, 0.02, -520);
 highway.add(leftGrass);
 
 // Right Grass
