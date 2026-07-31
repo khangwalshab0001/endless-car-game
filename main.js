@@ -144,6 +144,13 @@ temple.rotation.y = Math.PI / 2;
 
 scene.add(temple);
 colliders.push(temple);
+// Big Banyan Tree
+const banyan = createTree();
+
+banyan.scale.set(2.5, 2.5, 2.5);
+banyan.position.set(0, 0, 20);
+
+scene.add(banyan);
 const field1 = createField();
 field1.position.set(45, 0, 35);
 scene.add(field1);
