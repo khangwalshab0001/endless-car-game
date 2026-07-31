@@ -9,6 +9,7 @@ import { createShop } from "./js/village/shop.js";
 import { createTemple } from "./js/village/temple.js";
 import { createField } from "./js/village/field.js";
 import { createChabutra } from "./js/village/chabutra.js";
+import { createHighway } from "./js/highway/highway.js";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 const player = createPlayer();
 const playerCollider = new THREE.Box3();
@@ -165,7 +166,8 @@ field2.position.set(-55, 0, -35);
 scene.add(field2);
 createMap(scene);
 createRoad(scene);
-
+const highway = createHighway();
+scene.add(highway);
 camera.position.set(0,4,10);
 camera.lookAt(player.position);
 function checkCollision() {
