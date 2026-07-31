@@ -8,6 +8,7 @@ import { createPole } from "./js/village/pole.js";
 import { createShop } from "./js/village/shop.js";
 import { createTemple } from "./js/village/temple.js";
 import { createField } from "./js/village/field.js";
+import { createChabutra } from "./js/village/chabutra.js";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 const player = createPlayer();
 const playerCollider = new THREE.Box3();
@@ -144,6 +145,11 @@ temple.rotation.y = Math.PI / 2;
 
 scene.add(temple);
 colliders.push(temple);
+const chabutra = createChabutra();
+
+chabutra.position.set(0, 0, 20);
+
+scene.add(chabutra);
 // Big Banyan Tree
 const banyan = createTree();
 
