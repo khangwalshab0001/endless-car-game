@@ -92,6 +92,29 @@ export function createCity() {
     createBuilding(-55, 70, 25, 28, 22);
     createBuilding(55, 80, 20, 20, 20);
 
+// Forest to City Connecting Road
+const cityConnectionRoad = new THREE.Mesh(
+    new THREE.BoxGeometry(30, 0.2, 900),
+    new THREE.MeshStandardMaterial({
+        color: 0x303030
+    })
+);
 
+cityConnectionRoad.position.set(0, 0.1, 0);
+city.add(cityConnectionRoad);
+
+// Center Lane Markings
+for (let z = -450; z <= 450; z += 12) {
+
+    const line = new THREE.Mesh(
+        new THREE.BoxGeometry(0.35, 0.04, 6),
+        new THREE.MeshStandardMaterial({
+            color: 0xffffff
+        })
+    );
+
+    line.position.set(0, 0.23, z);
+    city.add(line);
+}
     return city;
 }
