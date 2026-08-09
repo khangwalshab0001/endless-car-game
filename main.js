@@ -13,6 +13,7 @@ import { createHighway } from "./js/highway/highway.js";
 import { createPetrolPump } from "./js/highway/petrolPump.js";
 import { createBridge } from "./js/highway/bridge.js";
 import { createForest } from "./js/highway/forest.js";
+import { createMountains } from "./js/highway/mountains.js";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 const player = createPlayer();
 const playerCollider = new THREE.Box3();
@@ -186,6 +187,11 @@ const forest = createForest();
 forest.position.set(0, 0, -950);
 
 scene.add(forest);
+const mountains = createMountains();
+
+mountains.position.set(0, 0, -1250);
+
+scene.add(mountains);
 camera.position.set(0,4,10);
 camera.lookAt(player.position);
 function checkCollision() {
