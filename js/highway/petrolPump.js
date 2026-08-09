@@ -105,5 +105,21 @@ for (let i = -12; i <= 12; i += 6) {
     parkingLine.position.set(i, 0.07, 14);
     pump.add(parkingLine);
 }
+    // Petrol Pump Entry Road
+const entryRoad = new THREE.Mesh(
+    new THREE.BoxGeometry(10, 0.05, 18),
+    new THREE.MeshStandardMaterial({
+        color: 0x333333
+    })
+);
+
+entryRoad.position.set(-13, 0.04, 8);
+pump.add(entryRoad);
+
+// Petrol Pump Exit Road
+const exitRoad = entryRoad.clone();
+
+exitRoad.position.set(13, 0.04, 8);
+pump.add(exitRoad);
     return pump;
 }
