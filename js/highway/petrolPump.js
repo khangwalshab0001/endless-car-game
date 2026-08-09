@@ -81,5 +81,29 @@ pump.add(pillar3);
 const pillar4 = pillar1.clone();
 pillar4.position.set(6, 2, 9);
 pump.add(pillar4);
+    // Petrol Pump Parking
+const parking = new THREE.Mesh(
+    new THREE.BoxGeometry(30, 0.05, 22),
+    new THREE.MeshStandardMaterial({
+        color: 0x555555
+    })
+);
+
+parking.position.set(0, 0.03, 8);
+pump.add(parking);
+
+// Parking Side Lines
+for (let i = -12; i <= 12; i += 6) {
+
+    const parkingLine = new THREE.Mesh(
+        new THREE.BoxGeometry(0.18, 0.03, 8),
+        new THREE.MeshStandardMaterial({
+            color: 0xffffff
+        })
+    );
+
+    parkingLine.position.set(i, 0.07, 14);
+    pump.add(parkingLine);
+}
     return pump;
 }
