@@ -15,6 +15,7 @@ import { createBridge } from "./js/highway/bridge.js";
 import { createForest } from "./js/highway/forest.js";
 import { createMountains } from "./js/highway/mountains.js";
 import { createCity } from "./js/highway/city.js";
+import { createForestRoad } from "./js/highway/forestRoad.js";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 const player = createPlayer();
 const playerCollider = new THREE.Box3();
@@ -193,6 +194,11 @@ const mountains = createMountains();
 mountains.position.set(0, 0, -1250);
 
 scene.add(mountains);
+const forestRoad = createForestRoad();
+
+forestRoad.position.set(35, 0, -1100);
+
+scene.add(forestRoad);
 const city = createCity();
 
 city.position.set(0, 0, -1600);
